@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'EZ PLAY - Juega sin complicarte',
+  description = 'Organizamos tus partidos para que solo tengas que llegar y jugar.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <!-- TODO: reemplazar cuando tengas tu favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
+    <div class="flex min-h-screen flex-col">
+      <!-- Header -->
+      <header class="border-b border-white/5 bg-slate-950/70 backdrop-blur">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+          <a href="/" class="flex items-center gap-2">
+            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-lime-400 text-slate-900 font-black">
+              EZ
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="font-semibold tracking-tight">EZ PLAY</span>
+              <span class="text-xs text-slate-400">Reserva. Llega. Juega.</span>
+            </div>
+          </a>
+
+          <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+            <a href="#como-funciona" class="hover:text-white">Cómo funciona</a>
+            <a href="#deportes" class="hover:text-white">Deportes</a>
+            <a href="#beneficios" class="hover:text-white">Beneficios</a>
+            <a href="#contacto" class="hover:text-white">Contacto</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <a
+              href="#descargar"
+              class="hidden rounded-full border border-lime-400/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-lime-300 hover:bg-lime-400 hover:text-slate-950 md:inline-flex"
+            >
+              Descargar app
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Contenido -->
+      <main class="flex-1">
+        <slot />
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-white/5 bg-black/40">
+        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} EZ PLAY. Todos los derechos reservados.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#terminos" class="hover:text-slate-200">Términos y condiciones</a>
+            <a href="#privacidad" class="hover:text-slate-200">Política de privacidad</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
