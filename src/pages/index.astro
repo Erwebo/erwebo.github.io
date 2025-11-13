@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import logo from "../assets/logo.png";
 
 const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
 const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
@@ -14,19 +15,32 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.1fr,0.9fr] md:py-20 lg:py-24">
       <!-- Texto -->
       <div class="flex flex-col justify-center gap-6">
+		
         <span class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-slate-900/70 px-3 py-1 text-xs font-medium text-primary/80">
           • Juega sin preocuparte por la organización
         </span>
 
-        <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-          Reserva tu <span class="text-primary">cupo</span> en segundos.
-          Nosotros nos encargamos del resto.
-        </h1>
+        
 
-        <p class="max-w-xl text-balance text-sm text-slate-300 sm:text-base">
-          EZ PLAY es la forma más fácil de unirte a partidos organizados de fútbol y volleyball en Panamá.
-          Pagas tu cupo desde la app, llegas a la cancha y encuentras todo listo para jugar.
-        </p>
+		<div class="flex flex-col md:flex-row items-center md:items-start gap-6 max-w-6xl">
+			<!-- TEXTO (60%) -->
+			<h1 class="md:basis-3/5 text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight text-center md:text-left">
+				Reserva tu <span class="text-primary">cupo</span> en segundos.
+				Nosotros nos encargamos del resto.
+			</h1>
+
+			<!-- LOGO (toma todo el ancho de su contenedor) -->
+			<img
+				src={logo.src}
+				alt="EZ PLAY logo"
+				class="md:basis-2/5 h-50 opacity-95 drop-shadow-xl object-contain mx-auto md:mx-0"
+			/>
+		</div>
+
+        <p class="text-balance text-sm text-slate-300 sm:text-base">
+			EZ PLAY es la forma más fácil de unirte a partidos organizados de fútbol y volleyball en Panamá.
+			Pagas tu cupo desde la app, llegas a la cancha y encuentras todo listo para jugar.
+		</p>
 
         <div class="flex flex-wrap items-center gap-4">
           <a
