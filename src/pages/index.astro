@@ -1,8 +1,8 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-const PLAY_STORE_URL = "#"; // TODO: reemplazar cuando tengas el enlace real
-const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
+const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 ---
 
 <MainLayout
@@ -14,12 +14,12 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
     <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.1fr,0.9fr] md:py-20 lg:py-24">
       <!-- Texto -->
       <div class="flex flex-col justify-center gap-6">
-        <span class="inline-flex w-fit items-center gap-2 rounded-full border border-lime-400/40 bg-slate-900/70 px-3 py-1 text-xs font-medium text-lime-300">
+        <span class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-slate-900/70 px-3 py-1 text-xs font-medium text-primary/80">
           • Juega sin preocuparte por la organización
         </span>
 
         <h1 class="text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-          Reserva tu <span class="text-lime-400">birria</span> en segundos.
+          Reserva tu <span class="text-primary">cupo</span> en segundos.
           Nosotros nos encargamos del resto.
         </h1>
 
@@ -31,34 +31,36 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
         <div class="flex flex-wrap items-center gap-4">
           <a
             href={PLAY_STORE_URL}
-            class="rounded-xl bg-lime-400 px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-lime-500/30 hover:bg-lime-300"
+			target="_blank"
+            class="rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-primary/30 hover:bg-primary/90"
           >
-            Próximamente en Play Store
+            Descarga la app | Android
           </a>
 
           <a
             href={APP_STORE_URL}
-            class="rounded-xl border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-lime-400/70 hover:text-lime-200"
+			target="_blank"
+            class="rounded-xl border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
           >
-            Próximamente en App Store
+            Descarga la app | iOS
           </a>
         </div>
 
         <div class="mt-2 grid gap-3 text-sm text-slate-300 sm:grid-cols-3">
           <div class="flex items-center gap-2">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10 text-xs text-lime-300">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80">
               ✓
             </span>
             <span>Equipos, balones y organización incluida.</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10 text-xs text-lime-300">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80">
               ✓
             </span>
             <span>Paga tu cupo desde el celular.</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-lime-400/10 text-xs text-lime-300">
+            <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80">
               ✓
             </span>
             <span>Solo llegas y juegas.</span>
@@ -68,13 +70,13 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
 
       <!-- "Mockup" de partidos -->
       <div class="flex items-center justify-center">
-        <div class="w-full max-w-md rounded-3xl border border-white/10 bg-slate-900/80 p-4 shadow-2xl shadow-lime-500/10">
+        <div class="w-full max-w-md rounded-3xl border border-white/10 bg-slate-900/80 p-4 shadow-2xl shadow-primary/10">
           <div class="mb-3 flex items-center justify-between">
             <div>
               <p class="text-xs uppercase tracking-wide text-slate-400">Hoy</p>
               <p class="text-sm font-semibold text-slate-100">Partidos disponibles</p>
             </div>
-            <span class="rounded-full bg-lime-400/10 px-3 py-1 text-xs font-semibold text-lime-300">
+            <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary/80">
               EZ PLAY
             </span>
           </div>
@@ -83,11 +85,11 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
             <div class="flex items-center justify-between rounded-2xl bg-slate-800/80 px-3 py-3">
               <div>
                 <p class="font-semibold text-slate-50">Fútbol 7 - Masculino</p>
-                <p class="text-xs text-slate-400">Hoy · 8:00 p.m. · San Antonio</p>
+                <p class="text-xs text-slate-400">Hoy · 8:00 p.m. · EZ Play Stadium</p>
               </div>
               <div class="text-right">
                 <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-lime-300">4 disponibles</p>
+                <p class="text-sm font-semibold text-primary">4 disponibles</p>
               </div>
             </div>
 
@@ -98,18 +100,18 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
               </div>
               <div class="text-right">
                 <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-lime-300">2 disponibles</p>
+                <p class="text-sm font-semibold text-primary">2 disponibles</p>
               </div>
             </div>
 
             <div class="flex items-center justify-between rounded-2xl bg-slate-800/40 px-3 py-3">
               <div>
                 <p class="font-semibold text-slate-50">Volleyball de playa</p>
-                <p class="text-xs text-slate-400">Sábado · 5:30 p.m. · XPark</p>
+                <p class="text-xs text-slate-400">Sábado · 5:30 p.m. · Xspark</p>
               </div>
               <div class="text-right">
                 <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-lime-300">6 disponibles</p>
+                <p class="text-sm font-semibold text-primary">6 disponibles</p>
               </div>
             </div>
           </div>
@@ -134,28 +136,28 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
 
       <div class="grid gap-6 md:grid-cols-4">
         <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Paso 1</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Paso 1</p>
           <h3 class="mt-2 text-base font-semibold">Elige tu partido</h3>
           <p class="mt-2 text-sm text-slate-300">
-            Abre EZ PLAY, elige el deporte, la zona y el horario que mejor te funcione.
+            Abre EZ PLAY, elige el deporte y el horario que mejor te funcione.
           </p>
         </div>
         <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Paso 2</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Paso 2</p>
           <h3 class="mt-2 text-base font-semibold">Reserva tu cupo</h3>
           <p class="mt-2 text-sm text-slate-300">
             Pagas tu espacio desde la app con los métodos disponibles y aseguras tu lugar.
           </p>
         </div>
         <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Paso 3</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Paso 3</p>
           <h3 class="mt-2 text-base font-semibold">Llega a la cancha</h3>
           <p class="mt-2 text-sm text-slate-300">
             Un organizador EZ PLAY estará en sitio con petos, balones, cronómetro y todo lo necesario según el deporte.
           </p>
         </div>
         <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Paso 4</p>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Paso 4</p>
           <h3 class="mt-2 text-base font-semibold">Solo juegas</h3>
           <p class="mt-2 text-sm text-slate-300">
             Nos encargamos de la organización para que tú solo tengas que disfrutar el partido.
@@ -177,25 +179,25 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-lime-400/40 bg-slate-900/70 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Fútbol</p>
-          <h3 class="mt-2 text-base font-semibold">Masculino, femenino y mixto</h3>
+        <div class="rounded-2xl border border-primary/40 bg-slate-900/70 p-4">
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Fútbol</p>
+          <h3 class="mt-2 text-base font-semibold">Albrook Gol, TripleShot</h3>
           <p class="mt-2 text-sm text-slate-300">
             Partidos recreativos organizados en diferentes canchas de Panamá. Nivel amistoso, ambiente sano.
           </p>
         </div>
 
         <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Volleyball de playa</p>
-          <h3 class="mt-2 text-base font-semibold">XPark y más por venir</h3>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Volleyball</p>
+          <h3 class="mt-2 text-base font-semibold">Canchas de area y piso</h3>
           <p class="mt-2 text-sm text-slate-300">
-            Birrias de volleyball de playa en formato recreativo. Organizadores, pelotas y marcador incluidos.
+            Birrias de volleyball en formato recreativo. Organizadores, pelotas y marcador incluidos.
           </p>
         </div>
 
         <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-lime-300">Próximamente</p>
-          <h3 class="mt-2 text-base font-semibold">Basketball y otros deportes</h3>
+          <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Próximamente</p>
+          <h3 class="mt-2 text-base font-semibold">Otros deportes</h3>
           <p class="mt-2 text-sm text-slate-300">
             Estamos trabajando para sumar más deportes y más sedes. EZ PLAY está pensado para crecer contigo.
           </p>
@@ -233,7 +235,7 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
         <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
           <h3 class="text-base font-semibold">Comunidad en crecimiento</h3>
           <p class="mt-2 text-sm text-slate-300">
-            Más de 1,500 usuarios ya han jugado con EZ PLAY. Conoce gente nueva y arma tu grupo de birria fijo.
+            Más de 2,500 usuarios ya han jugado con EZ PLAY. Conoce gente nueva y arma tu grupo de birria fijo.
           </p>
         </div>
       </div>
@@ -251,29 +253,29 @@ const APP_STORE_URL = "#";  // TODO: reemplazar cuando tengas el enlace real
             podemos ayudarte a llenar tus horarios y activar tu espacio.
           </p>
 
-          <div id="descargar" class="mt-6 space-y-2 text-sm text-slate-300">
+          <!-- <div id="descargar" class="mt-6 space-y-2 text-sm text-slate-300">
             <p class="font-semibold text-slate-100">Descarga la app (próximamente)</p>
             <p class="text-xs text-slate-400">
               Dejaremos aquí los enlaces directos a App Store y Play Store en cuanto estén disponibles.
             </p>
-          </div>
+          </div> -->
         </div>
 
         <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4">
           <h3 class="text-base font-semibold">Escríbenos</h3>
           <p class="mt-2 text-sm text-slate-300">
-            Mientras tanto, puedes contactarnos directamente por correo o redes sociales:
+            Puedes contactarnos directamente por correo o redes sociales:
           </p>
 
           <ul class="mt-4 space-y-2 text-sm text-slate-200">
             <li>
-              <span class="font-semibold">Correo:</span> info@ezplayapp.com
+              <span class="font-semibold">Correo:</span> <a href="mailto:administracion@ezplayapp.com">administracion@ezplayapp.com</a>
             </li>
             <li>
-              <span class="font-semibold">Instagram:</span> @ezplay.pa
+              <span class="font-semibold">Instagram:</span> <a href="https://www.instagram.com/ezplaylatam" target="_blank">@ezplaylatam</a>
             </li>
             <li>
-              <span class="font-semibold">TikTok:</span> @ezplay.pa
+              <span class="font-semibold">TikTok:</span> <a href="https://www.tiktok.com/@ezplaylatam">@ezplaylatam</a>
             </li>
           </ul>
         </div>

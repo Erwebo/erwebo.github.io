@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title = 'EZ PLAY - Juega sin complicarte',
-  description = 'Organizamos tus partidos para que solo tengas que llegar y jugar.',
+  description = 'Organizamos todo para que solo tengas que llegar y jugar.',
 } = Astro.props;
 ---
 
@@ -29,7 +29,7 @@ const {
       <header class="border-b border-white/5 bg-slate-950/70 backdrop-blur">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
           <a href="/" class="flex items-center gap-2">
-            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-lime-400 text-slate-900 font-black">
+            <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-slate-900 font-black">
               EZ
             </div>
             <div class="flex flex-col leading-tight">
@@ -38,17 +38,17 @@ const {
             </div>
           </a>
 
-          <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <!-- <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
             <a href="#como-funciona" class="hover:text-white">Cómo funciona</a>
             <a href="#deportes" class="hover:text-white">Deportes</a>
             <a href="#beneficios" class="hover:text-white">Beneficios</a>
             <a href="#contacto" class="hover:text-white">Contacto</a>
-          </nav>
+          </nav> -->
 
           <div class="flex items-center gap-2">
             <a
               href="#descargar"
-              class="hidden rounded-full border border-lime-400/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-lime-300 hover:bg-lime-400 hover:text-slate-950 md:inline-flex"
+              class="hidden rounded-full border border-primary/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary hover:bg-primary hover:text-slate-950 md:inline-flex"
             >
               Descargar app
             </a>

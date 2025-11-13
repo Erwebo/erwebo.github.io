@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #BF0404;
+  --color-ez-red: #BF0404;
+  --color-ez-black: #000000;
+  --color-ez-gray: #414042;
+  --color-ez-white: #ffffff;
+}
