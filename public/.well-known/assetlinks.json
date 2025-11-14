@@ -1,0 +1,16 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls",
+            "delegate_permission/common.get_login_creds"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.r2e.EZPlay",
+            "sha256_cert_fingerprints": [
+                "B0:3F:88:40:85:64:03:7B:D9:0D:0C:E3:CD:E2:58:CD:FF:9C:14:CE:07:76:50:30:C9:D6:EC:3E:A7:68:AE:B5",
+                "66:FF:95:EA:B0:87:3A:86:79:B9:B1:44:54:8A:DB:F1:FC:6E:A7:DA:55:82:8C:D6:90:A0:C1:23:E7:94:95:E1"
+            ]
+        }
+    }
+]
