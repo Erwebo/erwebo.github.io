@@ -3,87 +3,127 @@ import "../styles/global.css";
 import logo from "../assets/logo.png";
 import favicon from "../assets/favicon.png";
 
-
 interface Props {
-  title?: string;
-  description?: string;
+    title?: string;
+    description?: string;
 }
 
 const {
-  title = 'EZ PLAY - Juega sin complicarte',
-  description = 'Organizamos todo para que solo tengas que llegar y jugar.',
+    title = "EZ PLAY - Juega sin complicarte",
+    description = "Organizamos todo para que solo tengas que llegar y jugar.",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
-    <link rel="icon" type="image/png" href={favicon.src} />
-  </head>
-  <body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
-    <div class="flex min-h-screen flex-col">
-      <!-- Header -->
-      <header class="border-b border-white/5 bg-slate-950/70 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-          <a href="/" class="flex items-center gap-2">
-            <a href="/" class="flex items-center gap-2">
-                <img
-                src={logo.src}
-                width={logo.width}
-                height={logo.height}
-                alt="EZ PLAY logo"
-                class="h-9 w-auto rounded-lg object-contain"
-                />
-
-                <div class="flex flex-col leading-tight">
-                    <span class="font-semibold tracking-tight">EZ PLAY</span>
-                    <span class="text-xs text-slate-400">Reserva. Llega. Juega.</span>
-                </div>
-            </a>
-            <div class="flex flex-col leading-tight">
-              <span class="font-semibold tracking-tight">EZ PLAY</span>
-              <span class="text-xs text-slate-400">Reserva. Llega. Juega.</span>
-            </div>
-          </a>
-
-          <!-- <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-            <a href="#como-funciona" class="hover:text-white">Cómo funciona</a>
-            <a href="#deportes" class="hover:text-white">Deportes</a>
-            <a href="#beneficios" class="hover:text-white">Beneficios</a>
-            <a href="#contacto" class="hover:text-white">Contacto</a>
-          </nav> -->
-
-          <div class="flex items-center gap-2">
-            <a
-              href="/download"
-              class="hidden rounded-full border border-primary/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-primary hover:bg-primary hover:text-slate-950 md:inline-flex"
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content="index,follow" />
+        <link rel="icon" type="image/png" href={favicon.src} />
+    </head>
+    <body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
+        <div class="flex min-h-screen flex-col">
+            <!-- Header -->
+            <header
+                class="border-b border-white/5 bg-slate-950/70 backdrop-blur"
             >
-              Descargar app
-            </a>
-          </div>
-        </div>
-      </header>
+                <div
+                    class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+                >
+                    {/* Bloque logo + textos */}
+                    <a href="/" class="flex items-center gap-3">
+                        <img
+                            src={logo.src}
+                            width={logo.width}
+                            height={logo.height}
+                            alt="EZ PLAY logo"
+                            class="h-9 w-auto rounded-lg object-contain"
+                        />
 
-      <!-- Contenido -->
-      <main class="flex-1">
-        <slot />
-      </main>
+                        <div class="flex flex-col leading-tight">
+                            <span class="font-semibold tracking-tight"
+                                >EZ PLAY</span
+                            >
+                            <span class="text-xs text-slate-400"
+                                >Reserva, llega y juega.</span
+                            >
+                        </div>
 
-      <!-- Footer -->
-      <footer class="border-t border-white/5 bg-black/40">
-        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} EZ PLAY. Todos los derechos reservados.</p>
-          <div class="flex flex-wrap gap-4">
-            <a href="/terms" class="hover:text-slate-200">Términos y condiciones</a>
-            <a href="/privacy" class="hover:text-slate-200">Política de privacidad</a>
-          </div>
+                        <div class="hidden sm:flex flex-col leading-tight ml-4">
+                            <span class="font-semibold tracking-tight"
+                                >Sin complicaciones</span
+                            >
+                            <span class="text-xs text-slate-400">
+                                Nosotros organizamos, tú disfrutas.
+                            </span>
+                        </div>
+                    </a>
+
+                    {/* Botón descargar */}
+                    <div class="sm:flex-none">
+                        <a
+                            href="/download"
+                            class="inline-flex w-full justify-center rounded-full border border-primary/70 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary hover:bg-primary hover:text-slate-950 sm:w-auto"
+                        >
+                            Descargar app
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenido -->
+            <main class="flex-1">
+                <slot />
+            </main>
+
+            <!-- Footer -->
+            <footer class="border-t border-white/5 bg-black/40">
+                <div
+                    class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"
+                >
+                    <p>
+                        © {new Date().getFullYear()} EZ PLAY. Todos los derechos
+                        reservados.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/terms" class="hover:text-slate-200"
+                            >Términos y condiciones</a
+                        >
+                        <a href="/privacy" class="hover:text-slate-200"
+                            >Política de privacidad</a
+                        >
+                    </div>
+                </div>
+            </footer>
         </div>
-      </footer>
-    </div>
-  </body>
+        <button
+            id="backToTop"
+            type="button"
+            onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="fixed bottom-6 right-6 z-50 hidden rounded-full bg-primary p-3 shadow-lg shadow-primary/30 transition hover:bg-primary/90"
+            aria-label="Subir al inicio"
+        >
+            <span class="text-xl font-bold">⬆</span>
+        </button>
+
+        <script is:inline>
+            (() => {
+                if (typeof window === "undefined") return;
+
+                const btn = document.getElementById("backToTop");
+                if (!btn) return;
+
+                const toggleButton = () => {
+                    btn.classList.toggle("hidden", window.scrollY <= 300);
+                };
+
+                window.addEventListener("scroll", toggleButton, {
+                    passive: true,
+                });
+            })();
+        </script>
+    </body>
 </html>
