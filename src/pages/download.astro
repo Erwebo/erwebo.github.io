@@ -1,0 +1,67 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import logo from "../assets/logo.png";
+
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
+const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
+---
+
+<MainLayout
+  title="Descargar EZ PLAY - App oficial"
+  description="Descarga EZ PLAY para Android y iOS y únete a partidos organizados en Panamá."
+>
+  <section class="bg-slate-950">
+    <div class="mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center md:py-20">
+      <!-- Logo -->
+      <img
+        src={logo.src}
+        width={logo.width}
+        height={logo.height}
+        alt="EZ PLAY logo"
+        class="mb-6 h-16 w-auto opacity-95 drop-shadow-xl"
+      />
+
+      <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+        Descarga <span class="text-primary">EZ PLAY</span>
+      </h1>
+
+      <p class="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
+        Únete a partidos organizados de fútbol y volleyball en Panamá. 
+        Reserva tu cupo, paga desde la app y solo llega a jugar.
+      </p>
+
+      <!-- Botones de descarga -->
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+        <a
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-primary/30 hover:bg-primary/90"
+        >
+          <span class="mr-2 text-lg">📱</span>
+          Descargar en Play Store
+        </a>
+
+        <a
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
+        >
+          <span class="mr-2 text-lg">🍎</span>
+          Descargar en App Store
+        </a>
+      </div>
+
+      <!-- Texto secundario -->
+      <p class="mt-6 text-xs text-slate-400">
+        Si ya tienes la app instalada, solo inicia sesión y revisa los partidos disponibles de esta semana.
+      </p>
+
+      <!-- Link de vuelta al home -->
+      <a href="/" class="mt-8 text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4">
+        ← Volver al sitio principal
+      </a>
+    </div>
+  </section>
+</MainLayout>
