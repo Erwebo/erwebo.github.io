@@ -2,16 +2,20 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import logo from "../assets/logo.png";
 
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
 const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 ---
 
 <MainLayout
   title="Descargar EZ PLAY - App oficial"
   description="Descarga EZ PLAY para Android y iOS y únete a partidos organizados en Panamá."
+  canonicalUrl="https://ezplayapp.com/download"
 >
   <section class="bg-slate-950">
-    <div class="mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center md:py-20">
+    <div
+      class="mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center md:py-20"
+    >
       <!-- Logo -->
       <img
         src={logo.src}
@@ -26,8 +30,9 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
       </h1>
 
       <p class="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
-        Únete a partidos organizados de fútbol y volleyball en Panamá. 
-        Reserva tu cupo, paga desde la app y solo llega a jugar.
+        Únete a partidos organizados de fútbol y voleibol en Panamá. Descarga la
+        app oficial, reserva tu cupo, paga desde tu celular y solo llega a
+        jugar.
       </p>
 
       <!-- Botones de descarga -->
@@ -36,6 +41,7 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Descargar EZ PLAY desde Play Store"
           class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-primary/30 hover:bg-primary/90"
         >
           <span class="mr-2 text-lg">📱</span>
@@ -46,6 +52,7 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
           href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Descargar EZ PLAY desde App Store"
           class="inline-flex items-center justify-center rounded-xl border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
         >
           <span class="mr-2 text-lg">🍎</span>
@@ -55,11 +62,15 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 
       <!-- Texto secundario -->
       <p class="mt-6 text-xs text-slate-400">
-        Si ya tienes la app instalada, solo inicia sesión y revisa los partidos disponibles de esta semana.
+        Si ya tienes la app instalada, solo inicia sesión y revisa los partidos
+        disponibles de esta semana.
       </p>
 
       <!-- Link de vuelta al home -->
-      <a href="/" class="mt-8 text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4">
+      <a
+        href="/"
+        class="mt-8 text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4"
+      >
         ← Volver al sitio principal
       </a>
     </div>
