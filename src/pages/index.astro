@@ -2,7 +2,8 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import logo from "../assets/logo.png";
 
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
 const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 ---
 
@@ -19,11 +20,11 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
     >
       <!-- Texto -->
       <div class="flex flex-col justify-center gap-6">
-        <span
+        <!-- <span
           class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-slate-900/70 px-3 py-1 text-xs font-medium text-primary/80"
         >
           • Juega sin preocuparte por la organización
-        </span>
+        </span> -->
 
         <div
           class="flex flex-col md:flex-row items-center md:items-start gap-6 max-w-6xl"
@@ -44,13 +45,17 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
           />
         </div>
 
-        <p class="text-balance text-sm text-slate-300 sm:text-base">
+        <p
+          class="text-balance text-sm text-slate-300 sm:text-base text-center md:text-left"
+        >
           EZ PLAY es la forma más fácil de unirte a partidos organizados de
           fútbol y voleibol en Panamá. Pagas tu cupo desde la app, llegas a la
           cancha y encuentras todo listo para jugar.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4 justify-center md:justify-start">
+        <div
+          class="flex flex-wrap items-center gap-4 justify-center md:justify-start"
+        >
           <a
             href={PLAY_STORE_URL}
             target="_blank"
@@ -152,9 +157,7 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
               class="flex items-center justify-between rounded-2xl bg-slate-800/40 px-3 py-3"
             >
               <div>
-                <p class="font-semibold text-slate-50">
-                  voleibol mixto | Piso
-                </p>
+                <p class="font-semibold text-slate-50">voleibol mixto | Piso</p>
                 <p class="text-xs text-slate-400">Sábado · 5:30 p.m. · IPA</p>
               </div>
               <div class="text-right">
@@ -274,8 +277,8 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
           </p>
           <h3 class="mt-2 text-base font-semibold">Canchas de arena y piso</h3>
           <p class="mt-2 text-sm text-slate-300">
-            Birrias de voleibol en formato recreativo 4v4 y 6v6.
-            Organizadores, pelotas y marcador incluidos.
+            Birrias de voleibol en formato recreativo 4v4 y 6v6. Organizadores,
+            pelotas y marcador incluidos.
           </p>
         </div>
 
