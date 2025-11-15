@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import logo from "../assets/logo.png";
+import heroImg from "../assets/image1.png";
 
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
@@ -14,10 +15,14 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 >
   <!-- HERO -->
   <section
-    class="border-b border-white/5 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900/80"
+    class="border-b border-white/5 bg-slate-950 relative"
+    style={`background-image: url(${heroImg.src});
+          background-size: cover;
+          background-position: center;`}
   >
+    <div class="absolute inset-0 bg-black/60"></div>
     <div
-      class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.1fr,0.9fr] md:py-20 lg:py-24"
+      class="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.1fr,0.9fr] md:py-20 lg:py-24"
     >
       <!-- Texto -->
       <div class="flex flex-col justify-center gap-6">
@@ -37,20 +42,20 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
             Reserva tu <span class="text-primary">cupo</span> en segundos. Nosotros
             nos encargamos del resto.
           </h1>
-
-          <!-- LOGO (toma todo el ancho de su contenedor) -->
-          <img
-            src={logo.src}
-            alt="EZ PLAY"
-            class="md:basis-2/5 h-50 opacity-95 drop-shadow-xl object-contain mx-auto md:mx-0"
-          />
         </div>
 
         <p
-          class="text-balance text-sm text-slate-300 sm:text-base text-center md:text-left"
+          class="text-balance
+         text-base sm:text-lg md:text-xl
+         leading-relaxed
+         text-slate-100/90
+         drop-shadow-[0_2px_6px_rgba(0,0,0,0.75)]
+         max-w-xl
+         text-center md:text-left"
         >
-          EZ PLAY es la forma más fácil de unirte a partidos recreativos organizados en Panamá.
-          Reservas tu cupo desde la app, llegas a la cancha y todo está listo para jugar.
+          EZ PLAY es la forma más fácil de unirte a partidos recreativos
+          organizados en Panamá. Reservas tu cupo desde la app, llegas a la
+          cancha y todo está listo para jugar.
         </p>
 
         <div
@@ -75,30 +80,50 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
           </a>
         </div>
 
-        <div class="mt-2 grid gap-3 text-sm text-slate-300 sm:grid-cols-3">
-          <div class="flex items-center gap-2">
+        <div class="mt-4 grid gap-4 text-slate-100 sm:grid-cols-3">
+          <div class="flex items-center gap-3">
             <span
-              class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80"
+              class="inline-flex h-7 w-7 items-center justify-center rounded-full
+             bg-primary/20 text-sm font-bold text-primary
+             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
             >
               ✓
             </span>
-            <span>Equipos, balones y organización incluida.</span>
+            <span
+              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+            >
+              Equipos, balones y organización incluida.
+            </span>
           </div>
-          <div class="flex items-center gap-2">
+
+          <div class="flex items-center gap-3">
             <span
-              class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80"
+              class="inline-flex h-7 w-7 items-center justify-center rounded-full
+             bg-primary/20 text-sm font-bold text-primary
+             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
             >
               ✓
             </span>
-            <span>Paga tu cupo desde el celular.</span>
+            <span
+              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+            >
+              Paga tu cupo desde el celular.
+            </span>
           </div>
-          <div class="flex items-center gap-2">
+
+          <div class="flex items-center gap-3">
             <span
-              class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary/80"
+              class="inline-flex h-7 w-7 items-center justify-center rounded-full
+             bg-primary/20 text-sm font-bold text-primary
+             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
             >
               ✓
             </span>
-            <span>Solo llegas y juegas.</span>
+            <span
+              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+            >
+              Solo llegas y juegas.
+            </span>
           </div>
         </div>
       </div>
