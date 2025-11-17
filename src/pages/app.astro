@@ -1,0 +1,80 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const cbUrl = Astro.url.searchParams.get("cbUrl") ?? "";
+
+const title =
+  "Abrir EZ PLAY - Organiza tus partidos sin complicarte";
+const description =
+  "Si tienes la app EZ PLAY instalada se abrirá automáticamente. Si no, puedes descargarla aquí.";
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://ezplayapp.com/app"
+>
+  <section class="min-h-[60vh] bg-slate-950">
+    <div
+      class="mx-auto flex max-w-xl flex-col items-center justify-center gap-6 px-4 py-16 text-center"
+    >
+      <h1 class="text-2xl font-semibold tracking-tight sm:text-3xl">
+        Abriendo <span class="text-primary">EZ PLAY</span>…
+      </h1>
+
+      <p class="text-sm text-slate-300 sm:text-base">
+        Si tienes la app instalada en tu teléfono, se abrirá automáticamente.
+        <br />
+        Si no se abre nada, puedes descargarla desde aquí.
+      </p>
+
+      {cbUrl && (
+        <p class="rounded-lg bg-slate-900/60 px-3 py-2 text-xs text-slate-400">
+          URL interna solicitada:
+          <span class="ml-1 font-mono text-[11px] text-slate-200">{cbUrl}</span>
+        </p>
+      )}
+
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-slate-600 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-slate-100 hover:border-primary/70 hover:text-primary/80"
+        >
+          Descargar en Android
+        </a>
+
+        <a
+          href="https://apps.apple.com/pa/app/ez-play/id6446805916"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-slate-600 px-5 py-2 text-xs font-semibold uppercase tracking-wide text-slate-100 hover:border-primary/70 hover:text-primary/80"
+        >
+          Descargar en iOS
+        </a>
+      </div>
+
+      <p class="mt-4 text-xs text-slate-500">
+        Si la app ya está instalada, puedes volver atrás después de abrirla.
+      </p>
+    </div>
+  </section>
+
+  <!-- Fallback suave: si la app no se abrió (porque no está instalada),
+       lo más probable es que el usuario siga en esta página.
+       En ese caso lo mandamos a /download después de un par de segundos. -->
+  <script is:inline>
+    (() => {
+      if (typeof window === "undefined") return;
+
+      // Esperamos un poco para no interferir con el comportamiento nativo
+      setTimeout(() => {
+        // Si el usuario sigue aquí, lo enviamos a la página de descarga
+        if (document.visibilityState === "visible") {
+          window.location.href = "/download";
+        }
+      }, 2500);
+    })();
+  </script>
+</MainLayout>
