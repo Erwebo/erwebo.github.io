@@ -2,11 +2,10 @@
 import "../styles/global.css";
 import logo from "../assets/logo.png";
 
-
 interface Props {
   title?: string;
   description?: string;
-  canonicalUrl?: string; // 👈 opcional, por si quieres pasarlo desde cada página
+  canonicalUrl?: string;
 }
 
 const {
@@ -38,15 +37,22 @@ const structuredData = {
 <!doctype html>
 <html lang="es">
   <head>
+    <title>{title}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" href="/favicon.ico" />
 
+    <!-- Favicon / Icons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link
+      rel="mask-icon"
+      href="/favicon.svg"
+      color="#e11d48"
+    /><!-- opcional, Safari pinned tab -->
 
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
@@ -65,8 +71,11 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
-
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body class="min-h-screen bg-slate-950 text-slate-50 antialiased">
     <div class="flex min-h-screen flex-col">
@@ -87,11 +96,14 @@ const structuredData = {
 
             <div class="flex flex-col leading-tight">
               <span class="font-semibold tracking-tight">EZ PLAY</span>
-              <span class="text-xs text-slate-400">Reserva, llega y juega.</span>
+              <span class="text-xs text-slate-400">Reserva, llega y juega.</span
+              >
             </div>
 
             <div class="hidden sm:flex flex-col leading-tight ml-4">
-              <span class="font-semibold tracking-tight">Sin complicaciones</span>
+              <span class="font-semibold tracking-tight"
+                >Sin complicaciones</span
+              >
               <span class="text-xs text-slate-400">
                 Nosotros organizamos, tú disfrutas.
               </span>
@@ -146,18 +158,20 @@ const structuredData = {
     </button>
 
     <script is:inline>
-      {(() => {
-        if (typeof window === "undefined") return;
+      {
+        (() => {
+          if (typeof window === "undefined") return;
 
-        const btn = document.getElementById("backToTop");
-        if (!btn) return;
+          const btn = document.getElementById("backToTop");
+          if (!btn) return;
 
-        const toggleButton = () => {
-          btn.classList.toggle("hidden", window.scrollY <= 300);
-        };
+          const toggleButton = () => {
+            btn.classList.toggle("hidden", window.scrollY <= 300);
+          };
 
-        window.addEventListener("scroll", toggleButton, { passive: true });
-      })()}
+          window.addEventListener("scroll", toggleButton, { passive: true });
+        })();
+      }
     </script>
   </body>
 </html>
