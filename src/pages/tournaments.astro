@@ -88,7 +88,9 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
     description="Consulta los torneos activos organizados por EZ PLAY."
     canonicalUrl="https://ezplayapp.com/torneos"
 >
-    <section class="container">
+    <section
+        class="w-full max-w-none flex flex-col items-center gap-4 px-4 py-8 min-h-screen bg-black text-white text-center"
+    >
         <h1>Torneos EZ PLAY – 2do Aniversario</h1>
 
         <button class="refresh-btn" data-refresh>🔄 Actualizar</button>
@@ -187,9 +189,8 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         </section>
     </section>
 
-    <!-- Opción 2 (recomendada) -->
-    <script type="module">
-        import "/src/scripts/score-tabs.ts";
+    <script>
+        import "../scripts/score-tabs.ts";
     </script>
 
     <style>
@@ -209,42 +210,6 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-        }
-
-        .sport-tabs,
-        .subtabs {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            width: 100%;
-            max-width: 1100px;
-            overflow-x: auto;
-            scrollbar-width: thin;
-        }
-
-        .sport-tabs button,
-        .subtabs .subtab {
-            background: transparent;
-            border: 2px solid #555;
-            color: #fff;
-            font-size: 0.95rem;
-            padding: 0.55rem 1rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .sport-tabs button:hover,
-        .subtabs .subtab:hover {
-            background-color: #1b1b1b;
-        }
-
-        .sport-tabs button.active,
-        .subtabs .subtab.active {
-            background-color: #e50914;
-            border-color: #e50914;
         }
 
         .iframe-wrapper {
@@ -298,40 +263,6 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
             }
         }
 
-        /* color base (fútbol) */
-        .sport-tabs button.active[data-sport="soccer"] {
-            background-color: #e50914; /* rojo EZ Play */
-            border-color: #e50914;
-        }
-
-        /* color verde para voleibol */
-        .sport-tabs button.active[data-sport="volley"] {
-            background-color: #289c38;
-            border-color: #289c38;
-        }
-
-        /* Subtabs activos por deporte */
-        .subtabs[data-tab-scope="soccer"] .subtab.active {
-            background-color: #e50914;
-            border-color: #e50914;
-        }
-        .subtabs[data-tab-scope="volley"] .subtab.active {
-            background-color: #289c38;
-            border-color: #289c38;
-        }
-
-        /* Hover y foco coherentes por deporte (opcional, mejora UX/A11y) */
-        .subtabs[data-tab-scope="soccer"] .subtab:hover,
-        .subtabs[data-tab-scope="soccer"] .subtab:focus-visible {
-            outline: 2px solid #e50914;
-            outline-offset: 2px;
-        }
-        .subtabs[data-tab-scope="volley"] .subtab:hover,
-        .subtabs[data-tab-scope="volley"] .subtab:focus-visible {
-            outline: 2px solid #289c38;
-            outline-offset: 2px;
-        }
-
         .refresh-btn {
             background-color: #333;
             border: 2px solid #555;
@@ -355,6 +286,112 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         .scope[data-scope="volley"] .refresh-btn:hover {
             border-color: #289c38;
             color: #289c38;
+        }
+
+        /* Hover y foco coherentes por deporte (opcional, mejora UX/A11y) */
+        .subtabs[data-tab-scope="soccer"] .subtab:hover,
+        .subtabs[data-tab-scope="soccer"] .subtab:focus-visible {
+            outline: 2px solid #e50914;
+            outline-offset: 2px;
+        }
+        .subtabs[data-tab-scope="volley"] .subtab:hover,
+        .subtabs[data-tab-scope="volley"] .subtab:focus-visible {
+            outline: 2px solid #289c38;
+            outline-offset: 2px;
+        }
+
+        /* color base (fútbol) */
+        .sport-tabs button.active[data-sport="soccer"] {
+            background-color: #e50914; /* rojo EZ Play */
+            border-color: #e50914;
+        }
+
+        /* color verde para voleibol */
+        .sport-tabs button.active[data-sport="volley"] {
+            background-color: #289c38;
+            border-color: #289c38;
+        }
+
+        /* Subtabs activos por deporte */
+        .subtabs[data-tab-scope="soccer"] .subtab.active {
+            background-color: #e50914;
+            border-color: #e50914;
+        }
+        .subtabs[data-tab-scope="volley"] .subtab.active {
+            background-color: #289c38;
+            border-color: #289c38;
+        }
+
+        .sport-tabs,
+        .subtabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        /* === BOTONES PRINCIPALES (Fútbol / Vóley) === */
+        .sport-tabs button {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+            transition:
+                transform 0.15s ease,
+                background-color 0.2s ease;
+        }
+
+        .sport-tabs button:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Mantiene colores según deporte activo */
+        .sport-tabs button.active[data-sport="soccer"] {
+            background-color: #e50914;
+            border-color: #e50914;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.4);
+        }
+        .sport-tabs button.active[data-sport="volley"] {
+            background-color: #289c38;
+            border-color: #289c38;
+            box-shadow: 0 0 12px rgba(40, 156, 56, 0.4);
+        }
+
+        /* === BOTONES INTERNOS (Descripción / Equipos / etc.) === */
+        .subtabs .subtab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444;
+            color: #ddd;
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .subtabs .subtab:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+        }
+
+        /* Activos según deporte */
+        .subtabs[data-tab-scope="soccer"] .subtab.active {
+            background-color: #e50914;
+            border-color: #e50914;
+            color: #fff;
+        }
+        .subtabs[data-tab-scope="volley"] .subtab.active {
+            background-color: #289c38;
+            border-color: #289c38;
+            color: #fff;
         }
     </style>
 </MainLayout>
