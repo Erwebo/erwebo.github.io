@@ -1,0 +1,360 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+type ScoreEmbed = {
+    key: string;
+    label: string;
+    title: string;
+    src: string;
+};
+
+// ⚽ Fútbol
+const soccerIframes: Readonly<ScoreEmbed[]> = [
+    {
+        key: "overview",
+        label: "Descripción",
+        title: "Torneo de Fútbol – Descripción",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/overview?showName=true&theme=dark",
+    },
+    {
+        key: "teams",
+        label: "Equipos",
+        title: "Torneo de Fútbol – Equipos",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/participants?showName=true&theme=dark",
+    },
+    // {
+    //     key: "group-matches",
+    //     label: "Partidos (Grupos)",
+    //     title: "Torneo de Fútbol – Partidos (Grupos)",
+    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082624?showName=true&theme=dark",
+    // },
+    // {
+    //     key: "standings",
+    //     label: "Tabla",
+    //     title: "Torneo de Fútbol – Tabla",
+    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/standings/26082624?showName=true&theme=dark",
+    // },
+    // {
+    //     key: "stats",
+    //     label: "Estadísticas",
+    //     title: "Torneo de Fútbol – Estadísticas",
+    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stats?showName=true&theme=dark",
+    // },
+    // {
+    //     key: "elims",
+    //     label: "Eliminatoria",
+    //     title: "Torneo de Fútbol – Eliminatoria",
+    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082632?showName=true&theme=dark",
+    // },
+] as const;
+
+// 🏐 Vóley
+const volleyIframes: Readonly<ScoreEmbed[]> = [
+    {
+        key: "overview",
+        label: "Descripción",
+        title: "Vóley Playa – Descripción",
+        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/overview?showName=true&theme=dark",
+    },
+    {
+        key: "teams",
+        label: "Equipos",
+        title: "Vóley Playa – Equipos",
+        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/participants?showName=true&theme=dark",
+    },
+    // {
+    //     key: "group-matches",
+    //     label: "Partidos (Grupos)",
+    //     title: "Vóley Playa – Partidos (Grupos)",
+    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349353?showName=true&theme=dark",
+    // },
+    // {
+    //     key: "standings",
+    //     label: "Tabla",
+    //     title: "Vóley Playa – Tabla",
+    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/standings/26349353?showName=true&theme=dark",
+    // },
+    // {
+    //     key: "elims",
+    //     label: "Eliminatoria",
+    //     title: "Vóley Playa – Eliminatoria",
+    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349364?showName=true&theme=dark",
+    // },
+] as const;
+---
+
+<MainLayout
+    title="Torneos - EZ PLAY"
+    description="Consulta los torneos activos organizados por EZ PLAY."
+    canonicalUrl="https://ezplayapp.com/torneos"
+>
+    <section class="container">
+        <h1>Torneos EZ PLAY – 2do Aniversario</h1>
+
+        <button class="refresh-btn" data-refresh>🔄 Actualizar</button>
+
+        <!-- Tabs de deporte -->
+        <div class="sport-tabs" role="tablist" aria-label="Deporte">
+            <button
+                role="tab"
+                aria-selected="true"
+                class="active"
+                data-sport="soccer">⚽ Fútbol</button
+            >
+            <button role="tab" aria-selected="false" data-sport="volley"
+                >🏐 Vóley</button
+            >
+        </div>
+
+        <!-- Scope Fútbol -->
+        <section class="scope" data-scope="soccer">
+            <div
+                class="subtabs"
+                role="tablist"
+                aria-label="Vistas de Fútbol"
+                data-tab-scope="soccer"
+            >
+                {
+                    soccerIframes.map((s, i) => (
+                        <button
+                            class={`subtab ${i === 0 ? "active" : ""}`}
+                            role="tab"
+                            aria-selected={i === 0 ? "true" : "false"}
+                            data-target={s.key}
+                        >
+                            {s.label}
+                        </button>
+                    ))
+                }
+            </div>
+
+            <div class="iframe-wrapper" data-tab-scope="soccer">
+                {
+                    soccerIframes.map((s, i) => (
+                        <iframe
+                            data-panel={s.key}
+                            title={s.title}
+                            src={s.src}
+                            loading="lazy"
+                            allow="fullscreen"
+                            class={`panel ${i === 0 ? "shown" : ""}`}
+                            hidden={i !== 0}
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        />
+                    ))
+                }
+            </div>
+        </section>
+
+        <!-- Scope Vóley -->
+        <section class="scope" data-scope="volley" hidden>
+            <div
+                class="subtabs"
+                role="tablist"
+                aria-label="Vistas de Vóley"
+                data-tab-scope="volley"
+            >
+                {
+                    volleyIframes.map((s, i) => (
+                        <button
+                            class={`subtab ${i === 0 ? "active" : ""}`}
+                            role="tab"
+                            aria-selected={i === 0 ? "true" : "false"}
+                            data-target={s.key}
+                        >
+                            {s.label}
+                        </button>
+                    ))
+                }
+            </div>
+
+            <div class="iframe-wrapper" data-tab-scope="volley">
+                {
+                    volleyIframes.map((s, i) => (
+                        <iframe
+                            data-panel={s.key}
+                            title={s.title}
+                            src={s.src}
+                            loading="lazy"
+                            allow="fullscreen"
+                            class={`panel ${i === 0 ? "shown" : ""}`}
+                            hidden={i !== 0}
+                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        />
+                    ))
+                }
+            </div>
+        </section>
+    </section>
+
+    <!-- Opción 2 (recomendada) -->
+    <script type="module">
+        import "/src/scripts/score-tabs.ts";
+    </script>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sport-tabs,
+        .subtabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .sport-tabs button,
+        .subtabs .subtab {
+            background: transparent;
+            border: 2px solid #555;
+            color: #fff;
+            font-size: 0.95rem;
+            padding: 0.55rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .sport-tabs button:hover,
+        .subtabs .subtab:hover {
+            background-color: #1b1b1b;
+        }
+
+        .sport-tabs button.active,
+        .subtabs .subtab.active {
+            background-color: #e50914;
+            border-color: #e50914;
+        }
+
+        .iframe-wrapper {
+            width: 100%;
+            height: 70vh; /* ocupa 70% de la altura de la pantalla */
+            max-width: 1400px;
+            aspect-ratio: 16/9;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            position: relative;
+            background: #000;
+        }
+
+        iframe.panel {
+            padding-top: 15px;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        iframe.panel.shown {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scope[hidden] {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.35rem;
+            }
+            .subtabs .subtab {
+                font-size: 0.9rem;
+            }
+            .iframe-wrapper {
+                aspect-ratio: 9/16;
+                min-height: 520px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            iframe.panel {
+                transition: none;
+            }
+        }
+
+        /* color base (fútbol) */
+        .sport-tabs button.active[data-sport="soccer"] {
+            background-color: #e50914; /* rojo EZ Play */
+            border-color: #e50914;
+        }
+
+        /* color verde para voleibol */
+        .sport-tabs button.active[data-sport="volley"] {
+            background-color: #289c38;
+            border-color: #289c38;
+        }
+
+        /* Subtabs activos por deporte */
+        .subtabs[data-tab-scope="soccer"] .subtab.active {
+            background-color: #e50914;
+            border-color: #e50914;
+        }
+        .subtabs[data-tab-scope="volley"] .subtab.active {
+            background-color: #289c38;
+            border-color: #289c38;
+        }
+
+        /* Hover y foco coherentes por deporte (opcional, mejora UX/A11y) */
+        .subtabs[data-tab-scope="soccer"] .subtab:hover,
+        .subtabs[data-tab-scope="soccer"] .subtab:focus-visible {
+            outline: 2px solid #e50914;
+            outline-offset: 2px;
+        }
+        .subtabs[data-tab-scope="volley"] .subtab:hover,
+        .subtabs[data-tab-scope="volley"] .subtab:focus-visible {
+            outline: 2px solid #289c38;
+            outline-offset: 2px;
+        }
+
+        .refresh-btn {
+            background-color: #333;
+            border: 2px solid #555;
+            color: #fff;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            margin-top: 0.5rem;
+        }
+
+        .refresh-btn:hover {
+            background-color: #1b1b1b;
+        }
+
+        .scope[data-scope="soccer"] .refresh-btn:hover {
+            border-color: #e50914;
+            color: #e50914;
+        }
+
+        .scope[data-scope="volley"] .refresh-btn:hover {
+            border-color: #289c38;
+            color: #289c38;
+        }
+    </style>
+</MainLayout>
