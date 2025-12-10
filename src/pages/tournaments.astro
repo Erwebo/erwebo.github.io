@@ -91,7 +91,14 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
     <section
         class="w-full max-w-none flex flex-col items-center gap-4 px-4 py-8 min-h-screen bg-black text-white text-center"
     >
-        <h1>Torneos EZ PLAY – 2do Aniversario</h1>
+        <div class="hero-copy">
+            <p class="eyebrow">2do aniversario EZ PLAY</p>
+            <h1>Festival de Torneos · 13 y 14 de diciembre</h1>
+            <p class="lead">
+                Fútbol 5 (masculino) y Vóley Playa (mixto) con información en vivo: horarios, equipos,
+                llaves y tablas actualizadas para celebrar juntos otro año de juego.
+            </p>
+        </div>
 
         <button class="refresh-btn" data-refresh>🔄 Actualizar</button>
 
@@ -212,6 +219,35 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
             margin-bottom: 0.5rem;
         }
 
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            max-width: 820px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #e50914, #ef4444);
+            color: #fff;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .lead {
+            color: #d4d4d8;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
         .iframe-wrapper {
             width: 100%;
             height: 70vh; /* ocupa 70% de la altura de la pantalla */
@@ -247,6 +283,9 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.35rem;
+            }
+            .lead {
+                font-size: 0.98rem;
             }
             .subtabs .subtab {
                 font-size: 0.9rem;
