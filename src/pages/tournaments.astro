@@ -50,11 +50,29 @@ const soccerIframes: Readonly<ScoreEmbed[]> = [
 
 // 🏐 Vóley
 const volleyIframes: Readonly<ScoreEmbed[]> = [
+    // {
+    //     key: "overview",
+    //     label: "Descripción",
+    //     title: "Vóley Playa – Descripción",
+    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/overview?showName=true&theme=dark",
+    // },
     {
-        key: "overview",
-        label: "Descripción",
-        title: "Vóley Playa – Descripción",
-        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/overview?showName=true&theme=dark",
+        key: "group-matches",
+        label: "Partidos (Grupos)",
+        title: "Vóley Playa – Partidos (Grupos)",
+        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349353?showName=true&theme=dark",
+    },
+    {
+        key: "standings",
+        label: "Tabla",
+        title: "Vóley Playa – Tabla",
+        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/standings/26349353?showName=true&theme=dark",
+    },
+    {
+        key: "elims",
+        label: "Eliminatoria",
+        title: "Vóley Playa – Eliminatoria",
+        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349364?showName=true&theme=dark",
     },
     {
         key: "teams",
@@ -62,24 +80,6 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         title: "Vóley Playa – Equipos",
         src: "https://www.score7.io/embed/tournaments/hqo36nmky4/participants?showName=true&theme=dark",
     },
-    {
-        key: "group-matches",
-        label: "Partidos (Grupos)",
-        title: "Vóley Playa – Partidos (Grupos)",
-        src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349353?showName=true&theme=dark",
-    },
-    // {
-    //     key: "standings",
-    //     label: "Tabla",
-    //     title: "Vóley Playa – Tabla",
-    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/standings/26349353?showName=true&theme=dark",
-    // },
-    // {
-    //     key: "elims",
-    //     label: "Eliminatoria",
-    //     title: "Vóley Playa – Eliminatoria",
-    //     src: "https://www.score7.io/embed/tournaments/hqo36nmky4/stages/26349364?showName=true&theme=dark",
-    // },
 ] as const;
 ---
 
@@ -92,11 +92,11 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         class="w-full max-w-none flex flex-col items-center gap-4 px-4 py-8 min-h-screen bg-black text-white text-center"
     >
         <div class="hero-copy">
-            <p class="eyebrow">2do aniversario EZ PLAY</p>
-            <h1>Festival de Torneos · 13 y 14 de diciembre</h1>
+            <p class="eyebrow">🏐 HOY · VÓLEY PLAYA</p>
+            <h1>Arranca el Torneo de Vóley Playa EZ PLAY - 4:00 PM</h1>
             <p class="lead">
-                Fútbol 5 (masculino) y Vóley Playa (mixto) con información en vivo: horarios, equipos,
-                llaves y tablas actualizadas para celebrar juntos otro año de juego.
+                El torneo ya está en marcha. Consulta en tiempo real partidos,
+                equipos, tablas y llaves del 2do aniversario de EZ PLAY.
             </p>
         </div>
 
