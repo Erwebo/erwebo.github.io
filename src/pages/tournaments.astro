@@ -10,11 +10,35 @@ type ScoreEmbed = {
 
 // ⚽ Fútbol
 const soccerIframes: Readonly<ScoreEmbed[]> = [
+    // {
+    //     key: "overview",
+    //     label: "Descripción",
+    //     title: "Torneo de Fútbol – Descripción",
+    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/overview?showName=true&theme=dark",
+    // },
     {
-        key: "overview",
-        label: "Descripción",
-        title: "Torneo de Fútbol – Descripción",
-        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/overview?showName=true&theme=dark",
+        key: "group-matches",
+        label: "Partidos (Grupos)",
+        title: "Torneo de Fútbol – Partidos (Grupos)",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082624?showName=true&theme=dark",
+    },
+    {
+        key: "standings",
+        label: "Tabla",
+        title: "Torneo de Fútbol – Tabla",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/standings/26082624?showName=true&theme=dark",
+    },
+    {
+        key: "stats",
+        label: "Estadísticas",
+        title: "Torneo de Fútbol – Estadísticas",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stats?showName=true&theme=dark",
+    },
+    {
+        key: "elims",
+        label: "Eliminatoria",
+        title: "Torneo de Fútbol – Eliminatoria",
+        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082632?showName=true&theme=dark",
     },
     {
         key: "teams",
@@ -22,30 +46,6 @@ const soccerIframes: Readonly<ScoreEmbed[]> = [
         title: "Torneo de Fútbol – Equipos",
         src: "https://www.score7.io/embed/tournaments/ezplaysoccer/participants?showName=true&theme=dark",
     },
-    {
-        key: "group-matches",
-        label: "Partidos (Grupos)",
-        title: "Torneo de Fútbol – Partidos (Grupos)",
-        src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082624?showName=true&theme=dark",
-    },
-    // {
-    //     key: "standings",
-    //     label: "Tabla",
-    //     title: "Torneo de Fútbol – Tabla",
-    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/standings/26082624?showName=true&theme=dark",
-    // },
-    // {
-    //     key: "stats",
-    //     label: "Estadísticas",
-    //     title: "Torneo de Fútbol – Estadísticas",
-    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stats?showName=true&theme=dark",
-    // },
-    // {
-    //     key: "elims",
-    //     label: "Eliminatoria",
-    //     title: "Torneo de Fútbol – Eliminatoria",
-    //     src: "https://www.score7.io/embed/tournaments/ezplaysoccer/stages/26082632?showName=true&theme=dark",
-    // },
 ] as const;
 
 // 🏐 Vóley
@@ -92,8 +92,8 @@ const volleyIframes: Readonly<ScoreEmbed[]> = [
         class="w-full max-w-none flex flex-col items-center gap-4 px-4 py-8 min-h-screen bg-black text-white text-center"
     >
         <div class="hero-copy">
-            <p class="eyebrow">🏐 HOY · VÓLEY PLAYA</p>
-            <h1>Arranca el Torneo de Vóley Playa EZ PLAY - 4:00 PM</h1>
+            <p class="eyebrow">⚽ Hoy · Fútbol</p>
+            <h1>Arranca el Torneo de Fútbol EZ PLAY - 4:00 PM</h1>
             <p class="lead">
                 El torneo ya está en marcha. Consulta en tiempo real partidos,
                 equipos, tablas y llaves del 2do aniversario de EZ PLAY.
