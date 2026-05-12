@@ -1,4 +1,5 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { overflow-x: hidden; }
 
     :root {
       --bg:        #070707;
@@ -645,6 +646,7 @@
       display:flex; align-items:center; justify-content:center;
       font-size:1.15rem; color:var(--red);
     }
+    .feat-content { flex:1; min-width:0; }
     .feat-content h4 {
       font-family:'Barlow Condensed',sans-serif;
       font-size:1.05rem; font-weight:700; text-transform:uppercase;
@@ -1268,12 +1270,14 @@
     @media (max-width:860px) {
       .partidos-grid { grid-template-columns:1fr; }
       .deportes-grid { grid-template-columns:1fr; }
-      .deporte-card  { aspect-ratio:16/9; }
-      .dc-title      { min-height:1.9em; }
+      .deporte-card  { aspect-ratio:3/2; }
+      .dc-title      { min-height:1.9em; font-size:clamp(1.7rem,6vw,2.4rem); }
+      .dc-content    { padding:24px 20px; }
       .como-steps    { grid-template-columns:1fr 1fr; gap:40px; }
       .como-steps::before { display:none; }
       .app-inner     { grid-template-columns:1fr; gap:52px; }
       .app-mockup    { display:none; }
+      .features-visual { display:none; }
       .comunidad-inner { grid-template-columns:1fr; gap:52px; }
       .b2b-inner     { grid-template-columns:1fr; gap:52px; }
       .footer-top    { grid-template-columns:1fr; gap:28px; }
@@ -1288,13 +1292,14 @@
       .deportes-header { flex-direction:column; align-items:flex-start; }
     }
     @media (max-width:640px) {
-      .container { padding:0 24px; }
+      .container { padding:0 20px; }
       .nav-links, .nav-cta.desk { display:none; }
       .hamburger { display:flex; }
       .como-steps { grid-template-columns:1fr; }
       .b2b-cards { grid-template-columns:1fr; }
       .hero-stores { flex-direction:column; align-items:flex-start; }
       .insta-grid { grid-template-columns:1fr 1fr; }
+      .feat-item { padding:16px; gap:14px; }
     }
     @media (prefers-reduced-motion:reduce) {
       .reveal, .reveal-left, .reveal-right { opacity:1; transform:none; transition:none; }
