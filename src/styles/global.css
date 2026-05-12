@@ -111,7 +111,7 @@
       transition: all 0.3s;
     }
     .btn-store:hover { background: var(--bg4); border-color: var(--red); transform: translateY(-3px); box-shadow: 0 8px 28px rgba(194,0,0,0.3); }
-    .btn-store svg { flex-shrink: 0; }
+    .btn-store svg, .btn-store i { flex-shrink: 0; font-size: 22px; }
     .btn-store .store-text { text-align: left; }
     .btn-store .store-sub  { font-size: 0.65rem; color: var(--g2); display: block; line-height: 1.2; }
     .btn-store .store-name { font-size: 0.95rem; font-weight: 600; display: block; line-height: 1.2; }
@@ -363,18 +363,20 @@
     .partido-img {
       position:relative; height:180px; overflow:hidden;
     }
-    .partido-img img {
+    .partido-img > img {
       width:100%; height:100%; object-fit:cover;
       transition:transform .6s ease;
     }
-    .partido-card:hover .partido-img img { transform:scale(1.06); }
+    .partido-card:hover .partido-img > img { transform:scale(1.06); }
     .partido-img::after {
       content:'';
       position:absolute; inset:0;
       background:linear-gradient(to bottom, rgba(0,0,0,.25) 0%, rgba(7,7,7,.85) 100%);
     }
+    .sport-icon { width:15px; height:15px; vertical-align:middle; display:inline-block; }
     .partido-badge-sport {
       position:absolute; top:14px; left:14px; z-index:2;
+      display:inline-flex; align-items:center; gap:5px;
       background:var(--red); color:white;
       font-family:'Barlow Condensed',sans-serif;
       font-size:.68rem; font-weight:700; letter-spacing:.12em;
@@ -572,7 +574,7 @@
       position:absolute; bottom:-10px; right:-10px;
       width:34px; height:34px; background:var(--red); border-radius:50%;
       display:flex; align-items:center; justify-content:center;
-      font-size:.95rem;
+      font-size:.85rem; color:white;
     }
     .step-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -641,7 +643,7 @@
       width:46px; height:46px; flex-shrink:0;
       background:var(--red-pale); border:1px solid rgba(194,0,0,.2);
       display:flex; align-items:center; justify-content:center;
-      font-size:1.3rem;
+      font-size:1.15rem; color:var(--red);
     }
     .feat-content h4 {
       font-family:'Barlow Condensed',sans-serif;
@@ -819,6 +821,7 @@
       color:white; padding:14px 26px; border-radius:10px;
       transition:all .3s;
     }
+    .app-store-btn i { font-size:24px; flex-shrink:0; }
     .app-store-btn:hover { background:rgba(0,0,0,.4); border-color:rgba(255,255,255,.5); transform:translateY(-3px); }
     .app-store-btn .store-sub  { font-size:.65rem; color:rgba(255,255,255,.65); display:block; line-height:1.2; }
     .app-store-btn .store-name { font-size:.95rem; font-weight:600; display:block; line-height:1.2; }
@@ -886,7 +889,7 @@
       text-transform:uppercase; transition:all .3s;
     }
     .social-link:hover { border-color:var(--red); color:white; transform:translateX(6px); }
-    .social-link svg { flex-shrink:0; }
+    .social-link svg, .social-link i { flex-shrink:0; font-size:18px; }
 
     /* ── INSTAGRAM REELS ── */
     .insta-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; }
@@ -959,7 +962,7 @@
       width:48px; height:48px; background:#25D366; border-radius:50%;
       display:flex; align-items:center; justify-content:center; flex-shrink:0;
     }
-    .wha-icon svg { width:26px; height:26px; fill:white; }
+    .wha-icon svg, .wha-icon i { width:26px; height:26px; fill:white; font-size:26px; color:white; }
     .wha-title {
       font-family:'Barlow Condensed',sans-serif;
       font-size:1.3rem; font-weight:800; text-transform:uppercase; color:white; display:block;
@@ -1030,7 +1033,7 @@
       padding:28px 24px; transition:all .3s;
     }
     .b2b-card:hover { border-color:rgba(194,0,0,.4); background:var(--bg3); }
-    .b2b-card-icon { font-size:1.8rem; margin-bottom:12px; display:block; }
+    .b2b-card-icon { font-size:1.8rem; margin-bottom:12px; display:block; color:var(--red); }
     .b2b-card h4 {
       font-family:'Barlow Condensed',sans-serif;
       font-size:1.05rem; font-weight:700; text-transform:uppercase;

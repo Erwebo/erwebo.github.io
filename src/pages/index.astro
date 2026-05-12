@@ -47,7 +47,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#b2b">Empresas</a></li>
       </ul>
-      <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red nav-cta desk">Descargar app</a>
+      <a href="#app" class="btn btn-red nav-cta desk">Descargar app</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -75,14 +75,14 @@ import MainLayout from "../layouts/MainLayout.astro";
       </p>
       <div class="hero-stores">
         <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-store">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <i class="fa-brands fa-apple"></i>
           <div class="store-text">
             <span class="store-sub">Descarga en</span>
             <span class="store-name">App Store</span>
           </div>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn-store">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+          <i class="fa-brands fa-google-play"></i>
           <div class="store-text">
             <span class="store-sub">Descarga en</span>
             <span class="store-name">Google Play</span>
@@ -140,7 +140,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="partido-card reveal d1">
         <div class="partido-img">
           <img src="/assets/fotos/futbol-1.jpg" alt="Partido de fútbol" loading="lazy" />
-          <span class="partido-badge-sport">⚽ Fútbol Masculino</span>
+          <span class="partido-badge-sport"><img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> Fútbol Masculino</span>
           <span class="partido-badge-status status-ok">14 cupos disponibles</span>
           <span class="partido-price-badge">$6.50</span>
         </div>
@@ -150,7 +150,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="partido-time">7:00–9:00 AM</span>
           </div>
           <div class="partido-venue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <i class="fa-solid fa-location-dot"></i>
             Costa del Este · Panamá
           </div>
           <div class="cupos-track"><div class="cupos-fill" style="width:70%"></div></div>
@@ -159,8 +159,8 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="cupos-num">6 libres</span>
           </div>
           <div class="partido-info-row">
-            <span class="partido-info-pill">⚽ 10 vs 10</span>
-            <span class="partido-info-pill">👨 Masculino</span>
+            <span class="partido-info-pill"><img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> 10 vs 10</span>
+            <span class="partido-info-pill"><i class="fa-solid fa-person"></i> Masculino</span>
             <span class="partido-info-pill">General</span>
             <span class="partido-organizer">
               <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
@@ -169,7 +169,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <div class="partido-foot">
             <div class="partido-price">$6.50 <small>/ cupo</small></div>
-            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
+            <a href="#app" class="btn-reservar">Reservar →</a>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="partido-card reveal d2">
         <div class="partido-img">
           <img src="/assets/fotos/volley-arena-2.jpg" alt="Volleyball de arena" loading="lazy" />
-          <span class="partido-badge-sport">🏐 Vóley Playa</span>
+          <span class="partido-badge-sport"><img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> Vóley Playa</span>
           <span class="partido-badge-status status-few">2 cupos disponibles</span>
           <span class="partido-price-badge">$6.50</span>
         </div>
@@ -188,7 +188,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="partido-time">5:30–7:30 PM</span>
           </div>
           <div class="partido-venue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <i class="fa-solid fa-location-dot"></i>
             Xspark · Panamá
           </div>
           <div class="cupos-track"><div class="cupos-fill" style="width:90%"></div></div>
@@ -197,8 +197,8 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="cupos-num">2 libres</span>
           </div>
           <div class="partido-info-row">
-            <span class="partido-info-pill">🏐 5 vs 5</span>
-            <span class="partido-info-pill">⚤ Mixto</span>
+            <span class="partido-info-pill"><img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> 5 vs 5</span>
+            <span class="partido-info-pill"><i class="fa-solid fa-person"></i><i class="fa-solid fa-person-dress"></i> Mixto</span>
             <span class="partido-info-pill">General</span>
             <span class="partido-organizer">
               <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
@@ -207,7 +207,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <div class="partido-foot">
             <div class="partido-price">$6.50 <small>/ cupo</small></div>
-            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
+            <a href="#app" class="btn-reservar">Reservar →</a>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="partido-card reveal d3">
         <div class="partido-img">
           <img src="/assets/fotos/volley-piso-1.jpg" alt="Volleyball de piso" loading="lazy" />
-          <span class="partido-badge-sport">🏐 Vóley Piso</span>
+          <span class="partido-badge-sport"><img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> Vóley Piso</span>
           <span class="partido-badge-status status-ok">8 cupos disponibles</span>
           <span class="partido-price-badge">$6.50</span>
         </div>
@@ -226,7 +226,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="partido-time">8:00–10:00 PM</span>
           </div>
           <div class="partido-venue">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <i class="fa-solid fa-location-dot"></i>
             IPA Cancha · Panamá
           </div>
           <div class="cupos-track"><div class="cupos-fill" style="width:40%"></div></div>
@@ -235,8 +235,8 @@ import MainLayout from "../layouts/MainLayout.astro";
             <span class="cupos-num">12 libres</span>
           </div>
           <div class="partido-info-row">
-            <span class="partido-info-pill">🏐 6 vs 6</span>
-            <span class="partido-info-pill">⚤ Mixto</span>
+            <span class="partido-info-pill"><img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> 6 vs 6</span>
+            <span class="partido-info-pill"><i class="fa-solid fa-person"></i><i class="fa-solid fa-person-dress"></i> Mixto</span>
             <span class="partido-info-pill">Intermedio</span>
             <span class="partido-organizer">
               <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
@@ -245,7 +245,7 @@ import MainLayout from "../layouts/MainLayout.astro";
           </div>
           <div class="partido-foot">
             <div class="partido-price">$6.50 <small>/ cupo</small></div>
-            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
+            <a href="#app" class="btn-reservar">Reservar →</a>
           </div>
         </div>
       </div>
@@ -258,14 +258,14 @@ import MainLayout from "../layouts/MainLayout.astro";
       <p style="font-size:.9rem;font-weight:300;font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0;color:var(--g2);margin-top:-8px;">Descarga la app y reserva tu cupo en segundos desde iOS o Android.</p>
       <div class="partidos-stores">
         <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-store">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <i class="fa-brands fa-apple"></i>
           <div class="store-text">
             <span class="store-sub">Descarga en</span>
             <span class="store-name">App Store</span>
           </div>
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn-store">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+          <i class="fa-brands fa-google-play"></i>
           <div class="store-text">
             <span class="store-sub">Descarga en</span>
             <span class="store-name">Google Play</span>
@@ -298,27 +298,21 @@ import MainLayout from "../layouts/MainLayout.astro";
         <span class="mvp-rank">MVP</span>
         <div class="mvp-avatar">K</div>
         <div class="mvp-name">Kriss</div>
-        <div class="mvp-sport">🏐 Vóley Playa</div>
-        <div class="mvp-stat">3</div>
-        <div class="mvp-stat-label">Partidos MVP</div>
+        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> Vóley Playa</div>
       </div>
 
       <div class="mvp-card reveal d2">
         <span class="mvp-rank">MVP</span>
         <div class="mvp-avatar">M</div>
         <div class="mvp-name">Mateo</div>
-        <div class="mvp-sport">⚽ Fútbol</div>
-        <div class="mvp-stat">2</div>
-        <div class="mvp-stat-label">Partidos MVP</div>
+        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> Fútbol</div>
       </div>
 
       <div class="mvp-card reveal d3">
         <span class="mvp-rank">MVP</span>
         <div class="mvp-avatar">W</div>
         <div class="mvp-name">Will</div>
-        <div class="mvp-sport">🏐 Vóley Piso</div>
-        <div class="mvp-stat">2</div>
-        <div class="mvp-stat-label">Partidos MVP</div>
+        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> Vóley Piso</div>
       </div>
 
     </div>
@@ -407,22 +401,22 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
     <div class="como-steps">
       <div class="como-step reveal d1">
-        <div class="step-num">01<div class="step-icon-badge">📱</div></div>
+        <div class="step-num">01<div class="step-icon-badge"><i class="fa-solid fa-mobile-screen-button"></i></div></div>
         <div class="step-title">Elige tu partido</div>
         <p class="step-desc">Abre la app, escoge el deporte y el horario que más te quede disponible.</p>
       </div>
       <div class="como-step reveal d2">
-        <div class="step-num">02<div class="step-icon-badge">💳</div></div>
+        <div class="step-num">02<div class="step-icon-badge"><i class="fa-solid fa-credit-card"></i></div></div>
         <div class="step-title">Reserva tu cupo</div>
         <p class="step-desc">Paga y confirma tu lugar en segundos directamente desde el celular.</p>
       </div>
       <div class="como-step reveal d3">
-        <div class="step-num">03<div class="step-icon-badge">🏟️</div></div>
+        <div class="step-num">03<div class="step-icon-badge"><i class="fa-solid fa-person-running"></i></div></div>
         <div class="step-title">Llega a la cancha</div>
         <p class="step-desc">Todo listo: equipos armados, balón, petos de colores y árbitro esperándote.</p>
       </div>
       <div class="como-step reveal d4">
-        <div class="step-num">04<div class="step-icon-badge">🏆</div></div>
+        <div class="step-num">04<div class="step-icon-badge"><i class="fa-solid fa-trophy"></i></div></div>
         <div class="step-title">Solo juegas</div>
         <p class="step-desc">Disfruta el partido. Nosotros nos encargamos del resto.</p>
       </div>
@@ -446,28 +440,28 @@ import MainLayout from "../layouts/MainLayout.astro";
           <span class="feat-block-title">En la cancha</span>
           <div class="feat-list">
             <div class="feat-item">
-              <div class="feat-icon-wrap">🟥</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-flag"></i></div>
               <div class="feat-content">
                 <h4>Árbitro profesional</h4>
                 <p>Cada partido con árbitro oficial. Decisiones justas, tiempos respetados.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">🏐</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-shirt"></i></div>
               <div class="feat-content">
                 <h4>Balón y petos incluidos</h4>
                 <p>Llegas y todo está listo: balón de calidad y peto de tu color de equipo.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">🏟️</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
               <div class="feat-content">
                 <h4>Cancha reservada</h4>
                 <p>El espacio está apartado y listo desde la hora exacta de tu partido.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">👥</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-users"></i></div>
               <div class="feat-content">
                 <h4>Cupos limitados</h4>
                 <p>Siempre partido completo. Sin esperas ni cancelaciones de último minuto.</p>
@@ -480,28 +474,28 @@ import MainLayout from "../layouts/MainLayout.astro";
           <span class="feat-block-title">En el app</span>
           <div class="feat-list">
             <div class="feat-item">
-              <div class="feat-icon-wrap">🏆</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-ranking-star"></i></div>
               <div class="feat-content">
                 <h4>Marcador en vivo</h4>
                 <p>El árbitro actualiza el puntaje en tiempo real. Lo sigues desde tu celular.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">⏱️</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-stopwatch"></i></div>
               <div class="feat-content">
                 <h4>Temporizador en cancha</h4>
                 <p>En fútbol el tiempo se lleva con un temporizador visible para todos los jugadores.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">👕</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-shuffle"></i></div>
               <div class="feat-content">
                 <h4>Equipos automáticos</h4>
                 <p>La app divide los equipos. Ves en qué equipo quedaste antes de llegar a la cancha.</p>
               </div>
             </div>
             <div class="feat-item">
-              <div class="feat-icon-wrap">💳</div>
+              <div class="feat-icon-wrap"><i class="fa-solid fa-credit-card"></i></div>
               <div class="feat-content">
                 <h4>Pago desde el celular</h4>
                 <p>Reservas y pagas en segundos. Sin efectivo, sin filas, sin papeles.</p>
@@ -538,14 +532,14 @@ import MainLayout from "../layouts/MainLayout.astro";
         <p>Reserva tu cupo en segundos desde iOS o Android. Disponible en Panamá.</p>
         <div class="app-stores">
           <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="app-store-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <i class="fa-brands fa-apple"></i>
             <div>
               <span class="store-sub">Descarga en</span>
               <span class="store-name">App Store</span>
             </div>
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="app-store-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+            <i class="fa-brands fa-google-play"></i>
             <div>
               <span class="store-sub">Descarga en</span>
               <span class="store-name">Google Play</span>
@@ -581,11 +575,11 @@ import MainLayout from "../layouts/MainLayout.astro";
         <p>Entérate de nuevos partidos, horarios y novedades antes que nadie. La comunidad EZ Play crece cada semana en Panamá.</p>
         <div class="social-links" style="margin-bottom:3px;">
           <a href="https://www.instagram.com/ezplaylatam?igsh=OXVsZjVoMGowY3cw" target="_blank" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <i class="fa-brands fa-instagram fa-lg"></i>
             @ezplaylatam — Instagram
           </a>
           <a href="https://www.tiktok.com/@ezplaylatam?_r=1&_t=ZS-95tZSG4GNAA" target="_blank" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.56V6.8a4.85 4.85 0 01-1.07-.11z"/></svg>
+            <i class="fa-brands fa-tiktok fa-lg"></i>
             EZ Play — TikTok
           </a>
         </div>
@@ -595,7 +589,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         <div class="wha-card">
           <div class="wha-header">
             <div class="wha-icon">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              <i class="fa-brands fa-whatsapp"></i>
             </div>
             <div>
               <span class="wha-title">WhatsApp EZ Play</span>
@@ -606,7 +600,7 @@ import MainLayout from "../layouts/MainLayout.astro";
             Entérate primero de los partidos disponibles, nuevos horarios y promociones exclusivas para miembros de la comunidad.
           </p>
           <a href="https://chat.whatsapp.com/JQPI6x3Jk473y6f1YdbJmE" target="_blank" class="wha-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            <i class="fa-brands fa-whatsapp"></i>
             Unirme a la comunidad
           </a>
         </div>
@@ -624,49 +618,49 @@ import MainLayout from "../layouts/MainLayout.astro";
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DMBNxMPPkUe/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1914.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DXhTb69k7aG/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1915.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DWy5DhpiFf-/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1916.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DTbClO7D6Me/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1917.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DRFg-hejzEs/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1918.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DN38n2cj0pS/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1922.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DF8K1WMuALH/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1923.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
         <div class="ig-feed-item">
           <a href="https://www.instagram.com/reel/DQujLSGj8hA/" target="_blank" class="ig-reel-card">
             <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1924.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
           </a>
         </div>
       </div>
@@ -734,22 +728,22 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
       <div class="b2b-cards reveal-right">
         <div class="b2b-card">
-          <span class="b2b-card-icon">🏟️</span>
+          <span class="b2b-card-icon"><i class="fa-solid fa-futbol"></i></span>
           <h4>Canchas</h4>
           <p>Llenamos tus canchas con partidos organizados y comunidad activa.</p>
         </div>
         <div class="b2b-card">
-          <span class="b2b-card-icon">🏢</span>
+          <span class="b2b-card-icon"><i class="fa-solid fa-building"></i></span>
           <h4>Empresas</h4>
           <p>Torneos y jornadas deportivas para tu equipo de trabajo.</p>
         </div>
         <div class="b2b-card">
-          <span class="b2b-card-icon">🎯</span>
+          <span class="b2b-card-icon"><i class="fa-solid fa-bullseye"></i></span>
           <h4>Marcas</h4>
           <p>Activaciones deportivas con audiencia joven y activa en Panamá.</p>
         </div>
         <div class="b2b-card">
-          <span class="b2b-card-icon">👥</span>
+          <span class="b2b-card-icon"><i class="fa-solid fa-people-group"></i></span>
           <h4>Comunidades</h4>
           <p>Organización completa para ligas, grupos y comunidades deportivas.</p>
         </div>
@@ -808,7 +802,7 @@ import MainLayout from "../layouts/MainLayout.astro";
       <span>© 2026 EZ Play · Todos los derechos reservados · Panamá</span>
       <span style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;">
         <a href="#faq">Preguntas frecuentes</a>
-        <a href="/privacidad">Privacidad</a>
+        <a href="/privacy">Privacidad</a>
         <a href="/terms">Términos</a>
         <a href="mailto:administracion@ezplayapp.com">administracion@ezplayapp.com</a>
       </span>
@@ -866,17 +860,6 @@ import MainLayout from "../layouts/MainLayout.astro";
     });
   });
 
-  /* Detección de plataforma — los botones de descarga van al store correcto */
-  (function platformLinks(){
-    const ua = (navigator.userAgent || '').toLowerCase();
-    const isAndroid = /android/.test(ua);
-    const isIOS = /iphone|ipad|ipod/.test(ua) || (/macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-    const APP_STORE = 'https://apps.apple.com/pa/app/ez-play/id6446805916';
-    const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share';
-    if (!isAndroid && !isIOS) return;
-    const target = isAndroid ? PLAY_STORE : APP_STORE;
-    document.querySelectorAll('a.btn-reservar').forEach(a => { a.href = target; });
-  })();
 
   /* Demo: fechas dinámicas para los partidos placeholder
      (se reemplazan automáticamente cuando el endpoint esté conectado) */
@@ -1031,9 +1014,9 @@ import MainLayout from "../layouts/MainLayout.astro";
     volley_arena: '/assets/fotos/volley-arena-2.jpg',
     volley_piso:  '/assets/fotos/volley-piso-1.jpg',
   };
-  const _SPORT_ICON  = { futbol:'⚽', volley_arena:'🏐', volley_piso:'🏐' };
+  const _SPORT_ICON  = { futbol:`<img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt="">`, volley_arena:`<img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt="">`, volley_piso:`<img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt="">` };
   const _SPORT_LABEL = { futbol:'Fútbol Masculino', volley_arena:'Vóley Playa', volley_piso:'Vóley Piso' };
-  const _PIN_SVG     = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+  const _PIN_SVG     = `<i class="fa-solid fa-location-dot"></i>`;
   const _LOGO        = '/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png';
 
   function _buildCard(p) {
@@ -1047,7 +1030,8 @@ import MainLayout from "../layouts/MainLayout.astro";
     const precio  = Number(p.precio || 6.5).toFixed(2);
     const fechaStr = p.fecha_label || '';
     const horaStr  = p.horario || '';
-    const genIcon  = (p.genero || '').toLowerCase().includes('masc') ? '👨' : '⚤';
+    const _g = (p.genero || '').toLowerCase();
+    const genIcon = _g.includes('masc') ? '<i class="fa-solid fa-person"></i>' : _g.includes('fem') ? '<i class="fa-solid fa-person-dress"></i>' : '<i class="fa-solid fa-person"></i><i class="fa-solid fa-person-dress"></i>';
     return `
 <div class="partido-card reveal">
   <div class="partido-img">
@@ -1076,7 +1060,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     <div class="partido-foot">
       <div class="partido-price">$${precio} <small>/ cupo</small></div>
       ${libres > 0
-        ? `<a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>`
+        ? `<a href="#app" class="btn-reservar">Reservar →</a>`
         : `<span class="btn-reservar" style="opacity:.45;cursor:default;pointer-events:none;">Lleno</span>`}
     </div>
   </div>
@@ -1181,9 +1165,9 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   const _MVP_SPORT_LABEL = {
-    futbol:       '⚽ Fútbol',
-    volley_arena: '🏐 Vóley Playa',
-    volley_piso:  '🏐 Vóley Piso',
+    futbol:       `<img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> Fútbol`,
+    volley_arena: '<img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> Vóley Playa',
+    volley_piso:  '<img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> Vóley Piso',
   };
 
   function _buildMvpCard(m) {
@@ -1199,8 +1183,6 @@ import MainLayout from "../layouts/MainLayout.astro";
   <div class="mvp-avatar">${avatar}</div>
   <div class="mvp-name">${m.nombre || ''}</div>
   <div class="mvp-sport">${sport}</div>
-  <div class="mvp-stat">${m.partidos_mvp || 0}</div>
-  <div class="mvp-stat-label">Partidos MVP</div>
 </div>`;
   }
 

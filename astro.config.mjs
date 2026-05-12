@@ -9,5 +9,11 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://ezplayapp.com',
   vite: { plugins: [tailwindcss()] },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !page.includes('/app/') &&
+        !page.includes('/download/'),
+    }),
+  ],
 });
