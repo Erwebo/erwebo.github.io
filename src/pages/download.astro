@@ -1,6 +1,5 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import logo from "../assets/logo.png";
 
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
@@ -13,67 +12,177 @@ const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
   canonicalUrl="https://ezplayapp.com/download"
   noindex={true}
 >
-  <section class="bg-slate-950">
-    <div
-      class="mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center md:py-20"
-    >
-      <!-- Logo -->
-      <img
-        src={logo.src}
-        width={logo.width}
-        height={logo.height}
-        alt="EZ PLAY logo"
-        class="mb-6 h-16 w-auto opacity-95 drop-shadow-xl"
-      />
+  <section id="download-page">
+    <div class="container">
+      <div class="download-inner">
 
-      <h1 class="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-        Descarga <span class="text-primary">EZ PLAY</span>
-      </h1>
+        <div class="download-logo-wrap">
+          <img
+            src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png"
+            alt="EZ PLAY logo"
+            class="download-logo"
+          />
+        </div>
 
-      <p class="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
-        Únete a partidos organizados de fútbol y voleibol en Panamá. Descarga la
-        app oficial, reserva tu cupo, paga desde tu celular y solo llega a
-        jugar.
-      </p>
+        <div class="label">App oficial · Panamá</div>
 
-      <!-- Botones de descarga -->
-      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-        <a
-          href={PLAY_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Descargar EZ PLAY desde Play Store"
-          class="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-primary/30 hover:bg-primary/90"
-        >
-          <span class="mr-2 text-lg">📱</span>
-          Descargar en Android
-        </a>
+        <h1 class="download-title">
+          Descarga<br /><span class="red">EZ PLAY</span>
+        </h1>
 
-        <a
-          href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Descargar EZ PLAY desde App Store"
-          class="inline-flex items-center justify-center rounded-xl border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
-        >
-          <span class="mr-2 text-lg">🍎</span>
-          Descargar en iOS
-        </a>
+        <p class="download-desc">
+          Únete a partidos organizados de fútbol y voleibol en Panamá.<br />
+          Reserva tu cupo, paga desde tu celular y solo llega a jugar.
+        </p>
+
+        <div class="download-stores">
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-store"
+            aria-label="Descargar EZ PLAY desde App Store"
+          >
+            <i class="fa-brands fa-apple"></i>
+            <div class="store-text">
+              <span class="store-sub">Descarga en</span>
+              <span class="store-name">App Store</span>
+            </div>
+          </a>
+
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-store"
+            aria-label="Descargar EZ PLAY desde Play Store"
+          >
+            <i class="fa-brands fa-google-play"></i>
+            <div class="store-text">
+              <span class="store-sub">Descarga en</span>
+              <span class="store-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <p class="download-hint">
+          Si ya tienes la app instalada, inicia sesión y revisa los partidos disponibles de esta semana.
+        </p>
+
+        <a href="/" class="download-back">← Volver al sitio principal</a>
+
       </div>
-
-      <!-- Texto secundario -->
-      <p class="mt-6 text-xs text-slate-400">
-        Si ya tienes la app instalada, solo inicia sesión y revisa los partidos
-        disponibles de esta semana.
-      </p>
-
-      <!-- Link de vuelta al home -->
-      <a
-        href="/"
-        class="mt-8 text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4"
-      >
-        ← Volver al sitio principal
-      </a>
     </div>
   </section>
 </MainLayout>
+
+<style>
+  #download-page {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #download-page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(194,0,0,.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(194,0,0,.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .download-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 80px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-logo-wrap {
+    margin-bottom: 28px;
+  }
+
+  .download-logo {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 24px rgba(194,0,0,.3));
+  }
+
+  .download-title {
+    font-size: clamp(3.8rem, 12vw, 7rem);
+    margin-bottom: 1.2rem;
+    line-height: .95;
+  }
+
+  .download-desc {
+    font-size: 1rem;
+    color: var(--g2);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 2.8rem;
+  }
+
+  .download-stores {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .download-hint {
+    font-size: .82rem;
+    color: var(--g3);
+    line-height: 1.7;
+    max-width: 360px;
+    margin-bottom: 2rem;
+  }
+
+  .download-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--g3);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color .3s;
+  }
+
+  .download-back:hover {
+    color: var(--g1);
+  }
+
+  @media (max-width: 640px) {
+    .download-inner {
+      padding: 60px 0;
+    }
+
+    .download-stores {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-store {
+      width: 220px;
+      justify-content: center;
+    }
+  }
+</style>
