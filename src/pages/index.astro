@@ -1,453 +1,1230 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import heroImg from "../assets/image1.png";
-import benefitsImg from "../assets/benefits.jpg";
-import contactImg from "../assets/contact.jpg";
-
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.r2e.EZPlay";
-const APP_STORE_URL = "https://apps.apple.com/pa/app/ez-play/id6446805916";
 ---
 
 <MainLayout
-  title="EZ PLAY - Organizamos los partidos, tú solo llegas y juegas"
-  description="EZ PLAY es la forma más fácil de unirte a partidos organizados de fútbol y voleibol en Panamá. Pagas tu cupo desde la app, llegas a la cancha y encuentras todo listo para jugar."
-  canonicalUrl="https://ezplayapp.com/"
+  title="EZ Play · Reserva tu cupo y juega fútbol y volleyball en Panamá"
+  description="Reserva tu cupo y juega fútbol o volleyball en Panamá. +3,000 jugadores, +500 partidos organizados. Árbitro, balón, petos y equipos listos. Solo descargas la app."
+  canonicalUrl="https://ezplayapp.com"
 >
-  <!-- HERO -->
-  <section
-    class="border-b border-white/5 bg-slate-950 relative"
-    style={`background-image: url(${heroImg.src});
-          background-size: cover;
-          background-position: center;`}
-  >
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div
-      class="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-[1.1fr,0.9fr] md:py-20 lg:py-24"
-    >
-      <!-- Texto -->
-      <div class="flex flex-col justify-center gap-6">
-        <!-- <span
-          class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/40 bg-slate-900/70 px-3 py-1 text-xs font-medium text-primary/80"
-        >
-          • Juega sin preocuparte por la organización
-        </span> -->
+  <link rel="preload" as="image" href="/assets/fotos/hero-partido.jpg" fetchpriority="high" slot="head" />
 
-        <div
-          class="flex flex-col md:flex-row items-center md:items-start gap-6 max-w-6xl"
-        >
-          <!-- TEXTO (60%) -->
-          <h1
-            class="md:basis-3/5 text-balance text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight text-center md:text-left"
-          >
-            Reserva tu <span class="text-primary">cupo</span> en segundos. Nosotros
-            nos encargamos del resto.
-          </h1>
+
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menú principal">
+  <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">✕</button>
+  <a href="#partidos" onclick="closeMob()">Partidos</a>
+  <a href="#mvps" onclick="closeMob()">MVPs</a>
+  <a href="#deportes" onclick="closeMob()">Deportes</a>
+  <a href="#como" onclick="closeMob()">Cómo funciona</a>
+  <a href="#app" onclick="closeMob()">Descargar</a>
+  <a href="#comunidad" onclick="closeMob()">Comunidad</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#b2b" onclick="closeMob()">Empresas</a>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
+    <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn btn-outline">Google Play</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<header id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-mark">
+          <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" />
         </div>
+        <span class="nav-logo-text">EZPLAY</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#partidos">Partidos</a></li>
+        <li><a href="#mvps">MVPs</a></li>
+        <li><a href="#deportes">Deportes</a></li>
+        <li><a href="#como">Cómo funciona</a></li>
+        <li><a href="#app">Descargar</a></li>
+        <li><a href="#comunidad">Comunidad</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#b2b">Empresas</a></li>
+      </ul>
+      <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red nav-cta desk">Descargar app</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
 
-        <p
-          class="text-balance
-         text-base sm:text-lg md:text-xl
-         leading-relaxed
-         text-slate-100/90
-         drop-shadow-[0_2px_6px_rgba(0,0,0,0.75)]
-         max-w-xl
-         text-center md:text-left"
-        >
-          EZ PLAY es la forma más fácil de unirte a partidos recreativos
-          organizados en Panamá. Reservas tu cupo desde la app, llegas a la
-          cancha y todo está listo para jugar.
-        </p>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img src="/assets/fotos/hero-partido.jpg" alt="Partido EZ Play Panamá" />
+  </div>
 
-        <div
-          class="flex flex-wrap items-center gap-4 justify-center md:justify-start"
-        >
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-xl border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
-          >
-            Descarga la app | Android
-          </a>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span></span>
+        Disponible en iOS y Android · Panamá
+      </div>
+      <h1 class="hero-title">
+        Llega.<br>
+        <span class="red">Juega.</span>
+      </h1>
+      <div class="hero-sub">Sin grupos de WhatsApp. Sin armar equipo. Sin perder tiempo.</div>
+      <p class="hero-desc">
+        +3,000 jugadores ya reservan partidos en Panamá con EZ Play. Cancha, árbitro, balón y petos — todo listo cuando llegas.
+      </p>
+      <div class="hero-stores">
+        <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="store-text">
+            <span class="store-sub">Descarga en</span>
+            <span class="store-name">App Store</span>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn-store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+          <div class="store-text">
+            <span class="store-sub">Descarga en</span>
+            <span class="store-name">Google Play</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="rounded-xl border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-100 hover:border-primary/70 hover:text-primary/80"
-          >
-            Descarga la app | iOS
-          </a>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <span class="stat-num" data-count="3000" data-suffix="+">3,000+</span>
+      <span class="stat-label">Jugadores activos</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-count="500" data-suffix="+">500+</span>
+      <span class="stat-label">Partidos organizados</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num" data-count="3">3</span>
+      <span class="stat-label">Deportes</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">PTY</span>
+      <span class="stat-label">Panamá</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- PARTIDOS DISPONIBLES -->
+<section id="partidos">
+  <div class="container">
+
+    <div class="partidos-top">
+      <div class="partidos-top-left reveal-left">
+        <div class="live-badge"><span class="live-dot"></span>En la app ahora</div>
+        <div id="partidos-updated" style="font-size:.72rem;color:var(--g3);font-family:'Barlow Condensed',sans-serif;letter-spacing:.06em;margin-top:6px;display:none;">Actualizado <span id="partidos-updated-time"></span></div>
+        <span class="label">Partidos disponibles</span>
+        <h2>Reserva tu<br>cupo hoy</h2>
+      </div>
+      <div class="partidos-top-right reveal-right">
+        <p>Estos son los próximos partidos disponibles. Descarga la app, elige el que más te guste y paga tu cupo en segundos.</p>
+        <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;">
+          <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red" style="font-size:.8rem;padding:11px 24px;">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn btn-outline" style="font-size:.8rem;padding:11px 24px;">Google Play</a>
         </div>
+      </div>
+    </div>
 
-        <div class="mt-4 grid gap-4 text-slate-100 sm:grid-cols-3">
-          <div class="flex items-center gap-3">
-            <span
-              class="inline-flex h-7 w-7 items-center justify-center rounded-full
-             bg-primary/20 text-sm font-bold text-primary
-             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              ✓
-            </span>
-            <span
-              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              Equipos, balones y organización incluida.
+    <div class="partidos-grid" id="partidos-grid-dynamic">
+
+      <!-- Partido 1: Fútbol -->
+      <div class="partido-card reveal d1">
+        <div class="partido-img">
+          <img src="/assets/fotos/futbol-1.jpg" alt="Partido de fútbol" loading="lazy" />
+          <span class="partido-badge-sport">⚽ Fútbol Masculino</span>
+          <span class="partido-badge-status status-ok">14 cupos disponibles</span>
+          <span class="partido-price-badge">$6.50</span>
+        </div>
+        <div class="partido-body">
+          <div class="partido-datetime">
+            <span class="partido-day" data-day="next-sat">Sáb</span>
+            <span class="partido-time">7:00–9:00 AM</span>
+          </div>
+          <div class="partido-venue">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Costa del Este · Panamá
+          </div>
+          <div class="cupos-track"><div class="cupos-fill" style="width:70%"></div></div>
+          <div class="cupos-meta">
+            <span class="cupos-text">14 de 20 cupos</span>
+            <span class="cupos-num">6 libres</span>
+          </div>
+          <div class="partido-info-row">
+            <span class="partido-info-pill">⚽ 10 vs 10</span>
+            <span class="partido-info-pill">👨 Masculino</span>
+            <span class="partido-info-pill">General</span>
+            <span class="partido-organizer">
+              <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
+              EZ Play
             </span>
           </div>
-
-          <div class="flex items-center gap-3">
-            <span
-              class="inline-flex h-7 w-7 items-center justify-center rounded-full
-             bg-primary/20 text-sm font-bold text-primary
-             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              ✓
-            </span>
-            <span
-              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              Paga tu cupo desde el celular.
-            </span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <span
-              class="inline-flex h-7 w-7 items-center justify-center rounded-full
-             bg-primary/20 text-sm font-bold text-primary
-             drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              ✓
-            </span>
-            <span
-              class="text-base leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-            >
-              Solo llegas y juegas.
-            </span>
+          <div class="partido-foot">
+            <div class="partido-price">$6.50 <small>/ cupo</small></div>
+            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
           </div>
         </div>
       </div>
 
-      <!-- "Mockup" de partidos -->
-      <div class="flex items-center justify-center">
-        <div
-          class="w-full max-w-md rounded-3xl border border-white/10 bg-slate-900/80 p-4 shadow-2xl shadow-primary/10"
-        >
-          <div class="mb-3 flex items-center justify-between">
+      <!-- Partido 2: Volleyball Arena -->
+      <div class="partido-card reveal d2">
+        <div class="partido-img">
+          <img src="/assets/fotos/volley-arena-2.jpg" alt="Volleyball de arena" loading="lazy" />
+          <span class="partido-badge-sport">🏐 Vóley Playa</span>
+          <span class="partido-badge-status status-few">2 cupos disponibles</span>
+          <span class="partido-price-badge">$6.50</span>
+        </div>
+        <div class="partido-body">
+          <div class="partido-datetime">
+            <span class="partido-day" data-day="next-sat">Sáb</span>
+            <span class="partido-time">5:30–7:30 PM</span>
+          </div>
+          <div class="partido-venue">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Xspark · Panamá
+          </div>
+          <div class="cupos-track"><div class="cupos-fill" style="width:90%"></div></div>
+          <div class="cupos-meta">
+            <span class="cupos-text">18 de 20 cupos</span>
+            <span class="cupos-num">2 libres</span>
+          </div>
+          <div class="partido-info-row">
+            <span class="partido-info-pill">🏐 5 vs 5</span>
+            <span class="partido-info-pill">⚤ Mixto</span>
+            <span class="partido-info-pill">General</span>
+            <span class="partido-organizer">
+              <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
+              EZ Play
+            </span>
+          </div>
+          <div class="partido-foot">
+            <div class="partido-price">$6.50 <small>/ cupo</small></div>
+            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partido 3: Volleyball Piso -->
+      <div class="partido-card reveal d3">
+        <div class="partido-img">
+          <img src="/assets/fotos/volley-piso-1.jpg" alt="Volleyball de piso" loading="lazy" />
+          <span class="partido-badge-sport">🏐 Vóley Piso</span>
+          <span class="partido-badge-status status-ok">8 cupos disponibles</span>
+          <span class="partido-price-badge">$6.50</span>
+        </div>
+        <div class="partido-body">
+          <div class="partido-datetime">
+            <span class="partido-day" data-day="next-sun">Dom</span>
+            <span class="partido-time">8:00–10:00 PM</span>
+          </div>
+          <div class="partido-venue">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            IPA Cancha · Panamá
+          </div>
+          <div class="cupos-track"><div class="cupos-fill" style="width:40%"></div></div>
+          <div class="cupos-meta">
+            <span class="cupos-text">8 de 20 cupos</span>
+            <span class="cupos-num">12 libres</span>
+          </div>
+          <div class="partido-info-row">
+            <span class="partido-info-pill">🏐 6 vs 6</span>
+            <span class="partido-info-pill">⚤ Mixto</span>
+            <span class="partido-info-pill">Intermedio</span>
+            <span class="partido-organizer">
+              <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" style="background:#1a1a1a;border-radius:3px;padding:2px;" />
+              EZ Play
+            </span>
+          </div>
+          <div class="partido-foot">
+            <div class="partido-price">$6.50 <small>/ cupo</small></div>
+            <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA ver todos -->
+    <div class="partidos-cta reveal">
+      <p>¿Quieres ver <span>todos los partidos</span> disponibles?</p>
+      <p style="font-size:.9rem;font-weight:300;font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0;color:var(--g2);margin-top:-8px;">Descarga la app y reserva tu cupo en segundos desde iOS o Android.</p>
+      <div class="partidos-stores">
+        <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="store-text">
+            <span class="store-sub">Descarga en</span>
+            <span class="store-name">App Store</span>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn-store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+          <div class="store-text">
+            <span class="store-sub">Descarga en</span>
+            <span class="store-name">Google Play</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MVPs DE LA SEMANA -->
+<section id="mvps">
+  <div class="container">
+
+    <div class="mvps-header">
+      <div class="mvps-header-left reveal-left">
+        <div class="mvps-live-badge"><span class="live-dot"></span>Se actualiza cada semana</div>
+        <span class="label">Comunidad</span>
+        <h2>MVPs de<br>la Semana</h2>
+      </div>
+      <p class="reveal-right" style="max-width:360px;text-align:right;">
+        Los jugadores que más destacaron en los partidos recientes. Los MVPs se actualizan automáticamente desde el app cada semana.
+      </p>
+    </div>
+
+    <div class="mvps-grid">
+
+      <div class="mvp-card reveal d1">
+        <span class="mvp-rank">MVP</span>
+        <div class="mvp-avatar">K</div>
+        <div class="mvp-name">Kriss</div>
+        <div class="mvp-sport">🏐 Vóley Playa</div>
+        <div class="mvp-stat">3</div>
+        <div class="mvp-stat-label">Partidos MVP</div>
+      </div>
+
+      <div class="mvp-card reveal d2">
+        <span class="mvp-rank">MVP</span>
+        <div class="mvp-avatar">M</div>
+        <div class="mvp-name">Mateo</div>
+        <div class="mvp-sport">⚽ Fútbol</div>
+        <div class="mvp-stat">2</div>
+        <div class="mvp-stat-label">Partidos MVP</div>
+      </div>
+
+      <div class="mvp-card reveal d3">
+        <span class="mvp-rank">MVP</span>
+        <div class="mvp-avatar">W</div>
+        <div class="mvp-name">Will</div>
+        <div class="mvp-sport">🏐 Vóley Piso</div>
+        <div class="mvp-stat">2</div>
+        <div class="mvp-stat-label">Partidos MVP</div>
+      </div>
+
+    </div>
+
+    <div class="mvps-note reveal">
+      <div class="mvps-note-dot"></div>
+      <p><strong>Datos en tiempo real desde el app.</strong> Los MVPs y sus estadísticas se actualizan automáticamente cada semana según el rendimiento registrado por los árbitros en cada partido.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEPORTES -->
+<section id="deportes">
+  <div class="container">
+    <div class="deportes-header">
+      <div class="reveal-left">
+        <span class="label">En la cancha</span>
+        <h2>La energía<br>real</h2>
+      </div>
+      <p class="reveal-right" style="max-width:380px;text-align:right;">
+        Volleyball de arena, volleyball de piso y fútbol — todos con árbitro, balones y equipos organizados por la app.
+      </p>
+    </div>
+    <div class="deportes-grid">
+
+      <div class="deporte-card reveal d1">
+        <div class="dc-bg"><img src="/assets/fotos/volley-arena-1.jpg" alt="Volleyball de Arena" loading="lazy" /></div>
+        <div class="dc-overlay"></div>
+        <div class="dc-content">
+          <span class="dc-category">Mixto</span>
+          <div class="dc-title">Volleyball<br>de Arena</div>
+          <div class="dc-sub">Cancha de arena · Al aire libre</div>
+          <div class="dc-tags">
+            <span class="dc-tag">Mixto</span>
+            <span class="dc-tag">Árbitro</span>
+            <span class="dc-tag">Balón incluido</span>
+            <span class="dc-tag">Marcador live</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deporte-card reveal d2">
+        <div class="dc-bg"><img src="/assets/fotos/volley-piso-2.jpg" alt="Volleyball de Piso" loading="lazy" /></div>
+        <div class="dc-overlay"></div>
+        <div class="dc-content">
+          <span class="dc-category">Mixto</span>
+          <div class="dc-title">Volleyball<br>de Piso</div>
+          <div class="dc-sub">Cancha cubierta · Indoor</div>
+          <div class="dc-tags">
+            <span class="dc-tag">Mixto</span>
+            <span class="dc-tag">Árbitro</span>
+            <span class="dc-tag">Balón incluido</span>
+            <span class="dc-tag">Marcador live</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="deporte-card reveal d3">
+        <div class="dc-bg"><img src="/assets/fotos/futbol-1.jpg" alt="Fútbol" loading="lazy" /></div>
+        <div class="dc-overlay"></div>
+        <div class="dc-content">
+          <span class="dc-category">Masculino</span>
+          <div class="dc-title">Fútbol</div>
+          <div class="dc-sub">Cancha de césped · Outdoor</div>
+          <div class="dc-tags">
+            <span class="dc-tag">Masculino</span>
+            <span class="dc-tag">Árbitro</span>
+            <span class="dc-tag">Balón incluido</span>
+            <span class="dc-tag">Temporizador</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como">
+  <div class="container">
+    <div class="como-header reveal">
+      <span class="label">Cómo funciona</span>
+      <h2>4 pasos,<br>un partido</h2>
+      <p style="margin-top:1rem;">Así de simple es jugar con EZ Play.</p>
+    </div>
+    <div class="como-steps">
+      <div class="como-step reveal d1">
+        <div class="step-num">01<div class="step-icon-badge">📱</div></div>
+        <div class="step-title">Elige tu partido</div>
+        <p class="step-desc">Abre la app, escoge el deporte y el horario que más te quede disponible.</p>
+      </div>
+      <div class="como-step reveal d2">
+        <div class="step-num">02<div class="step-icon-badge">💳</div></div>
+        <div class="step-title">Reserva tu cupo</div>
+        <p class="step-desc">Paga y confirma tu lugar en segundos directamente desde el celular.</p>
+      </div>
+      <div class="como-step reveal d3">
+        <div class="step-num">03<div class="step-icon-badge">🏟️</div></div>
+        <div class="step-title">Llega a la cancha</div>
+        <p class="step-desc">Todo listo: equipos armados, balón, petos de colores y árbitro esperándote.</p>
+      </div>
+      <div class="como-step reveal d4">
+        <div class="step-num">04<div class="step-icon-badge">🏆</div></div>
+        <div class="step-title">Solo juegas</div>
+        <p class="step-desc">Disfruta el partido. Nosotros nos encargamos del resto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TODO LISTO. SOLO JUEGAS. (físico + app, fusión premium) -->
+<section id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <span class="label">Todo listo</span>
+      <h2>Solo<br>juegas</h2>
+      <p>No traes nada, no organizas nada. Llegas con ganas — el resto está cubierto en la cancha y en la app.</p>
+    </div>
+
+    <div class="features-inner">
+      <div class="features-text reveal-left">
+
+        <div class="feat-block">
+          <span class="feat-block-title">En la cancha</span>
+          <div class="feat-list">
+            <div class="feat-item">
+              <div class="feat-icon-wrap">🟥</div>
+              <div class="feat-content">
+                <h4>Árbitro profesional</h4>
+                <p>Cada partido con árbitro oficial. Decisiones justas, tiempos respetados.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">🏐</div>
+              <div class="feat-content">
+                <h4>Balón y petos incluidos</h4>
+                <p>Llegas y todo está listo: balón de calidad y peto de tu color de equipo.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">🏟️</div>
+              <div class="feat-content">
+                <h4>Cancha reservada</h4>
+                <p>El espacio está apartado y listo desde la hora exacta de tu partido.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">👥</div>
+              <div class="feat-content">
+                <h4>Cupos limitados</h4>
+                <p>Siempre partido completo. Sin esperas ni cancelaciones de último minuto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feat-block">
+          <span class="feat-block-title">En el app</span>
+          <div class="feat-list">
+            <div class="feat-item">
+              <div class="feat-icon-wrap">🏆</div>
+              <div class="feat-content">
+                <h4>Marcador en vivo</h4>
+                <p>El árbitro actualiza el puntaje en tiempo real. Lo sigues desde tu celular.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">⏱️</div>
+              <div class="feat-content">
+                <h4>Temporizador en cancha</h4>
+                <p>En fútbol el tiempo se lleva con un temporizador visible para todos los jugadores.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">👕</div>
+              <div class="feat-content">
+                <h4>Equipos automáticos</h4>
+                <p>La app divide los equipos. Ves en qué equipo quedaste antes de llegar a la cancha.</p>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-icon-wrap">💳</div>
+              <div class="feat-content">
+                <h4>Pago desde el celular</h4>
+                <p>Reservas y pagas en segundos. Sin efectivo, sin filas, sin papeles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="features-visual reveal-right">
+        <div class="app-glow"></div>
+        <div class="dual-phones">
+          <div class="app-screenshot-phone">
+            <img src="/assets/CAPTURA%20DEL%20APP/IMG_1892.jpg" alt="EZ Play — Pantalla Home" loading="lazy" />
+          </div>
+          <div class="app-screenshot-phone" style="margin-top:44px;">
+            <div class="app-screenshot-phone-glow"></div>
+            <img src="/assets/CAPTURA%20DEL%20APP/IMG_1897.jpg" alt="EZ Play — Jugar" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESCARGA LA APP -->
+<section id="app">
+  <div class="container">
+    <div class="app-inner">
+      <div class="app-text reveal-left">
+        <span class="label">Disponible ahora</span>
+        <h2>Descarga<br>la app</h2>
+        <p>Reserva tu cupo en segundos desde iOS o Android. Disponible en Panamá.</p>
+        <div class="app-stores">
+          <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="app-store-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
             <div>
-              <p class="text-xs uppercase tracking-wide text-slate-400">Hoy</p>
-              <p class="text-sm font-semibold text-slate-100">
-                Partidos disponibles
-              </p>
+              <span class="store-sub">Descarga en</span>
+              <span class="store-name">App Store</span>
             </div>
-            <span
-              class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary/80"
-            >
-              EZ PLAY
-            </span>
-          </div>
-
-          <div class="space-y-3 text-sm">
-            <div
-              class="flex items-center justify-between rounded-2xl bg-slate-800/80 px-3 py-3"
-            >
-              <div>
-                <p class="font-semibold text-slate-50">Fútbol 5 - Masculino</p>
-                <p class="text-xs text-slate-400">
-                  Hoy · 8:00 p.m. · EZ Play Stadium
-                </p>
-              </div>
-              <div class="text-right">
-                <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-primary">4 disponibles</p>
-              </div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="app-store-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.22.96.14l.08-.05 11.04-6.38-2.39-2.4-9.69 8.69zm14.16-9.29L14.2 12l3.15-3.15 3.55 2.05c1.01.58 1.01 1.54 0 2.13l-3.56 2.04zM3.14.23L12.83 9.9l-2.39 2.39L.23.94a.98.98 0 010-.7c.13-.31.36-.54.69-.64.07-.03.14-.05.22-.06.34-.02.68.09.94.33L3.14.23zm1 1.39L12.24 12l-8.1 8.38-.02.02c-.26.24-.6.37-.94.35V1.25c.35-.01.68.12.96.37z"/></svg>
+            <div>
+              <span class="store-sub">Descarga en</span>
+              <span class="store-name">Google Play</span>
             </div>
+          </a>
+        </div>
+      </div>
 
-            <div
-              class="flex items-center justify-between rounded-2xl bg-slate-800/60 px-3 py-3"
-            >
-              <div>
-                <p class="font-semibold text-slate-50">
-                  Voleibol mixto | Arena
-                </p>
-                <p class="text-xs text-slate-400">
-                  Jueves · 9:00 p.m. · Xspark
-                </p>
-              </div>
-              <div class="text-right">
-                <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-primary">2 disponibles</p>
-              </div>
-            </div>
-
-            <div
-              class="flex items-center justify-between rounded-2xl bg-slate-800/40 px-3 py-3"
-            >
-              <div>
-                <p class="font-semibold text-slate-50">Voleibol mixto | Piso</p>
-                <p class="text-xs text-slate-400">Sábado · 5:30 p.m. · IPA</p>
-              </div>
-              <div class="text-right">
-                <p class="text-xs text-slate-400">Cupos</p>
-                <p class="text-sm font-semibold text-primary">6 disponibles</p>
-              </div>
+      <div class="app-mockup reveal-right">
+        <div class="phone-glow"></div>
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-video-wrap">
+              <video autoplay muted loop playsinline preload="none">
+                <source src="/assets/CONTENIDO%20NUEVO/New%20Smartphone%20Stories%20(Instagram%20Reel).mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
-
-          <p class="mt-4 text-xs text-slate-400">
-            *Ejemplo ilustrativo. Descarga la app para ver los partidos reales
-            de esta semana.
-          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CÓMO FUNCIONA -->
-  <section id="como-funciona" class="border-b border-white/5 bg-slate-950">
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <div class="mb-8 max-w-2xl">
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
-          ¿Cómo funciona EZ PLAY?
-        </h2>
-        <p class="mt-3 text-sm text-slate-300 sm:text-base">
-          Diseñamos EZ PLAY para que jugar sea tan simple como reservar un ride:
-          escoges el partido, pagas tu cupo y listo.
+<!-- COMUNIDAD -->
+<section id="comunidad">
+  <div class="container">
+    <div class="comunidad-inner">
+      <div class="reveal-left">
+        <span class="label">Comunidad</span>
+        <h2>Únete a<br>la comunidad</h2>
+        <p>Entérate de nuevos partidos, horarios y novedades antes que nadie. La comunidad EZ Play crece cada semana en Panamá.</p>
+        <div class="social-links" style="margin-bottom:3px;">
+          <a href="https://www.instagram.com/ezplaylatam?igsh=OXVsZjVoMGowY3cw" target="_blank" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @ezplaylatam — Instagram
+          </a>
+          <a href="https://www.tiktok.com/@ezplaylatam?_r=1&_t=ZS-95tZSG4GNAA" target="_blank" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.56V6.8a4.85 4.85 0 01-1.07-.11z"/></svg>
+            EZ Play — TikTok
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal-right">
+        <div class="wha-card">
+          <div class="wha-header">
+            <div class="wha-icon">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div>
+              <span class="wha-title">WhatsApp EZ Play</span>
+              <span class="wha-sub">Comunidad oficial en Panamá</span>
+            </div>
+          </div>
+          <p class="wha-desc">
+            Entérate primero de los partidos disponibles, nuevos horarios y promociones exclusivas para miembros de la comunidad.
+          </p>
+          <a href="https://chat.whatsapp.com/JQPI6x3Jk473y6f1YdbJmE" target="_blank" class="wha-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Unirme a la comunidad
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEED STRIP: 8 reels horizontales -->
+    <div class="ig-feed-strip reveal">
+      <div class="ig-feed-header">
+        <span class="ig-feed-title">Lo que pasa en el campo</span>
+        <span class="ig-feed-hint">Desliza →</span>
+        <a href="https://www.instagram.com/ezplaylatam?igsh=OXVsZjVoMGowY3cw" target="_blank" class="ig-feed-link">Ver todo en @ezplaylatam →</a>
+      </div>
+      <div class="ig-feed-row">
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DMBNxMPPkUe/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1914.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DXhTb69k7aG/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1915.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DWy5DhpiFf-/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1916.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DTbClO7D6Me/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1917.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DRFg-hejzEs/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1918.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DN38n2cj0pS/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1922.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DF8K1WMuALH/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1923.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+        <div class="ig-feed-item">
+          <a href="https://www.instagram.com/reel/DQujLSGj8hA/" target="_blank" class="ig-reel-card">
+            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1924.jpg" alt="" loading="lazy" />
+            <div class="ig-reel-overlay"><div class="ig-reel-play"><svg width="11" height="11" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><span class="ig-reel-label">Reel</span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <span class="label" style="margin-bottom:.6rem;">Preguntas frecuentes</span>
+      <h2>Lo que<br>te preguntas</h2>
+      <p style="margin-top:1rem;">Las dudas más comunes antes de tu primer partido.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>¿Necesito experiencia para jugar?</summary>
+        <div class="faq-body">No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Si eres nuevo solo descarga la app, reserva y llega: el árbitro y los equipos están listos.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué pasa si llueve o cancelan el partido?</summary>
+        <div class="faq-body">Si EZ Play cancela el partido por clima o cualquier motivo, el monto pagado se reembolsa automáticamente en <strong>EZ Créditos</strong> dentro de tu cuenta para que te puedas anotar en otro partido o fecha cuando quieras.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo cancelar mi reserva?</summary>
+        <div class="faq-body">Sí. Si cancelas con al menos <strong>12 horas de anticipación</strong>, la app te reembolsa el 100% en <strong>EZ Créditos</strong> para que los uses en otro partido o fecha. Cancelaciones con menos de 12 horas no son reembolsables porque la cancha y los recursos ya están comprometidos.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Tengo que llevar algo? ¿Balón? ¿Petos?</summary>
+        <div class="faq-body">Solo tu ropa deportiva. El balón, los petos por color de equipo, el árbitro y la cancha — todo está incluido en tu cupo.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo se arman los equipos?</summary>
+        <div class="faq-body">La app divide los equipos automáticamente antes del partido. Llegas, ves en qué equipo quedaste y te pones el peto del color asignado.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta jugar?</summary>
+        <div class="faq-body">$6.50 por cupo en la mayoría de partidos. El precio exacto lo ves en cada partido antes de reservar — sin sorpresas.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿En qué zonas de Panamá hay partidos?</summary>
+        <div class="faq-body">Actualmente operamos en varias canchas de la ciudad de Panamá (Costa del Este, Xspark, IPA Cancha y otras). En la app ves todas las canchas activas y los próximos partidos disponibles.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo se eligen los MVPs?</summary>
+        <div class="faq-body">Los árbitros registran el desempeño de cada jugador en tiempo real. Cada semana la app destaca a los MVPs según los partidos jugados y el rendimiento registrado.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- B2B -->
+<section id="b2b">
+  <div class="container">
+    <div class="b2b-inner">
+      <div class="b2b-text reveal-left">
+        <span class="label">Empresas y canchas</span>
+        <h2>¿Tienes una<br>cancha o empresa?</h2>
+        <p>
+          Organizamos jornadas deportivas para canchas, marcas, empresas y comunidades. Llevamos toda la logística — tú solo pones el espacio.
         </p>
+        <a href="mailto:administracion@ezplayapp.com" class="btn btn-red">Contáctanos →</a>
       </div>
-
-      <div class="grid gap-6 md:grid-cols-4">
-        <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Paso 1
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Elige tu partido</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Abre EZ PLAY, elige el deporte y el horario que mejor te funcione.
-          </p>
+      <div class="b2b-cards reveal-right">
+        <div class="b2b-card">
+          <span class="b2b-card-icon">🏟️</span>
+          <h4>Canchas</h4>
+          <p>Llenamos tus canchas con partidos organizados y comunidad activa.</p>
         </div>
-        <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Paso 2
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Reserva tu cupo</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Pagas tu espacio desde la app con los métodos disponibles y aseguras
-            tu lugar.
-          </p>
+        <div class="b2b-card">
+          <span class="b2b-card-icon">🏢</span>
+          <h4>Empresas</h4>
+          <p>Torneos y jornadas deportivas para tu equipo de trabajo.</p>
         </div>
-        <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Paso 3
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Llega a la cancha</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Un organizador EZ PLAY estará en sitio con petos, balones,
-            cronómetro y todo lo necesario según el deporte.
-          </p>
+        <div class="b2b-card">
+          <span class="b2b-card-icon">🎯</span>
+          <h4>Marcas</h4>
+          <p>Activaciones deportivas con audiencia joven y activa en Panamá.</p>
         </div>
-        <div class="rounded-2xl border border-white/5 bg-slate-900/60 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Paso 4
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Solo juegas</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Nos encargamos de la organización para que tú solo tengas que
-            disfrutar el partido.
-          </p>
+        <div class="b2b-card">
+          <span class="b2b-card-icon">👥</span>
+          <h4>Comunidades</h4>
+          <p>Organización completa para ligas, grupos y comunidades deportivas.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DEPORTES -->
-  <!-- <section id="deportes" class="border-b border-white/5 bg-slate-950/90">
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <div class="mb-8 max-w-2xl">
-        <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Deportes disponibles
-        </h2>
-        <p class="mt-3 text-sm text-slate-300 sm:text-base">
-          EZ PLAY es una plataforma pensada para múltiples deportes. Hoy tenemos
-          fútbol y voleibol, pero seguimos abriendo espacio para nuevas
-          disciplinas.
-        </p>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <div class="nav-logo-mark" style="width:36px;height:36px;">
+            <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" />
+          </div>
+          <span class="footer-brand-name">EZPLAY</span>
+        </div>
+        <p>Reserva tu cupo. Llega. Juega. Sin complicaciones. Disponible en Panamá para iOS y Android.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red" style="font-size:.76rem;padding:9px 20px;">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn btn-outline" style="font-size:.76rem;padding:9px 20px;">Google Play</a>
+        </div>
       </div>
-
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-primary/40 bg-slate-900/70 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Fútbol
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Albrook Gol, TripleShot</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Partidos recreativos organizados en diferentes canchas de Panamá.
-            Intensidad sana con árbitros para mantener el orden.
-          </p>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Voleibol
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Canchas de arena y piso</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Birrias de voleibol en formato recreativo 4v4 y 6v6. Organizadores,
-            pelotas y marcador incluidos.
-          </p>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-          <p
-            class="text-xs font-semibold uppercase tracking-wide text-primary/80"
-          >
-            Próximamente
-          </p>
-          <h3 class="mt-2 text-base font-semibold">Otros deportes</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Estamos trabajando para sumar más deportes y más sedes. EZ PLAY está
-            pensado para crecer contigo.
-          </p>
-        </div>
+      <div class="footer-col">
+        <h4>Deportes</h4>
+        <ul class="footer-links">
+          <li><a href="#deportes">Volleyball de Arena</a></li>
+          <li><a href="#deportes">Volleyball de Piso</a></li>
+          <li><a href="#deportes">Fútbol Masculino</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>App</h4>
+        <ul class="footer-links">
+          <li><a href="#partidos">Partidos disponibles</a></li>
+          <li><a href="#mvps">MVPs de la semana</a></li>
+          <li><a href="#como">Cómo funciona</a></li>
+          <li><a href="#features">En el app</a></li>
+          <li><a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank">Descargar iOS</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank">Descargar Android</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Comunidad</h4>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/ezplaylatam?igsh=OXVsZjVoMGowY3cw" target="_blank">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@ezplaylatam?_r=1&_t=ZS-95tZSG4GNAA" target="_blank">TikTok</a></li>
+          <li><a href="https://chat.whatsapp.com/JQPI6x3Jk473y6f1YdbJmE" target="_blank">WhatsApp</a></li>
+          <li><a href="mailto:administracion@ezplayapp.com">Contacto B2B</a></li>
+        </ul>
       </div>
     </div>
-  </section> -->
-
-  <!-- BENEFICIOS -->
-  <section id="beneficios" class="bg-slate-950">
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <div class="grid gap-8 md:grid-cols-2 md:items-center">
-
-         <!-- Imagen -->
-        <div class="relative">
-          <img
-            src={benefitsImg.src}
-            alt="Jugadores disfrutando un partido de voleibol organizado por EZ PLAY"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-80 md:h-[28rem] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/30"
-          />
-          <div
-            class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-slate-950/20 via-transparent to-primary/10"
-          >
-          </div>
-        </div>
-
-        <!-- Texto -->
-        <div>
-          <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
-            ¿Por qué jugar con EZ PLAY?
-          </h2>
-          <p class="mt-3 text-sm text-slate-300 sm:text-base">
-            No es solo reservar una cancha. Es tener un equipo que se encarga de
-            la logística para que cada partido se sienta como un evento
-            organizado.
-          </p>
-
-          <div class="mt-6 grid gap-6 sm:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-              <h3 class="text-base font-semibold">Organización completa</h3>
-              <p class="mt-2 text-sm text-slate-300">
-                Petos, balones, cronómetro, árbitro o coordinador según el
-                deporte.
-              </p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-              <h3 class="text-base font-semibold">
-                Pagos claros y cupos limitados
-              </h3>
-              <p class="mt-2 text-sm text-slate-300">
-                Pagas solo tu espacio. Cupos definidos para asegurar buenos
-                tiempos.
-              </p>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-              <h3 class="text-base font-semibold">Comunidad en crecimiento</h3>
-              <p class="mt-2 text-sm text-slate-300">
-                Conoce gente nueva y arma tu grupo de birria fijo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-       
-      </div>
+    <div class="footer-bottom">
+      <span>© 2026 EZ Play · Todos los derechos reservados · Panamá</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;">
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/terms">Términos</a>
+        <a href="mailto:administracion@ezplayapp.com">administracion@ezplayapp.com</a>
+      </span>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- CONTACTO / CTA -->
-  <section
-    id="contacto"
-    class="border-t border-white/5 bg-gradient-to-t from-slate-950 via-slate-950 to-slate-900"
-  >
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      <div class="grid gap-8 md:grid-cols-2 md:items-center">
-        <!-- Texto + CTA -->
-        <div class="md:order-1">
-          <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">
-            ¿Quieres llevar EZ PLAY a tu cancha o empresa?
-          </h2>
-          <p class="mt-3 text-sm text-slate-300 sm:text-base">
-            Organizamos jornadas deportivas para canchas, marcas, empresas y
-            comunidades. Escríbenos y conversemos cómo podemos ayudarte a llenar
-            tus horarios y activar tu espacio.
-          </p>
+<script is:inline>
+  /* NAV */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
 
-          <div
-            class="mt-6 rounded-2xl border border-white/10 bg-slate-900/70 p-4"
-          >
-            <h3 class="text-base font-semibold">Escríbenos</h3>
-            <p class="mt-2 text-sm text-slate-300">
-              Puedes contactarnos directamente por correo o redes sociales:
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-slate-200">
-              <li>
-                <span class="font-semibold">Correo:</span>
-                <a href="mailto:administracion@ezplayapp.com"
-                  >administracion@ezplayapp.com</a
-                >
-              </li>
-              <li>
-                <span class="font-semibold">Instagram:</span>
-                <a href="https://www.instagram.com/ezplaylatam" target="_blank"
-                  >@ezplaylatam</a
-                >
-              </li>
-              <li>
-                <span class="font-semibold">TikTok:</span>
-                <a href="https://www.tiktok.com/@ezplaylatam">@ezplaylatam</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- Imagen -->
-        <div class="relative md:order-2">
-          <img
-            src={contactImg.src}
-            alt="Cancha con iluminación lista para jornada deportiva de EZ PLAY"
-            loading="lazy"
-            decoding="async"
-            class="w-full h-72 md:h-[26rem] object-cover rounded-3xl border border-white/10 shadow-2xl shadow-black/30"
-          />
-          <div
-            class="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-black/10 to-black/0"
-          >
-          </div>
-        </div>
-      </div>
+  /* Mobile menu */
+  const hamb = document.getElementById('hamburger');
+  hamb.addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.add('open');
+    hamb.setAttribute('aria-expanded', 'true');
+  });
+  document.getElementById('mobileClose').addEventListener('click', closeMob);
+  function closeMob() {
+    document.getElementById('mobileNav').classList.remove('open');
+    hamb.setAttribute('aria-expanded', 'false');
+  }
+
+  /* Scroll reveal */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+  /* Parallax hero */
+  const heroBgImg = document.querySelector('.hero-bg img');
+  const heroContent = document.querySelector('.hero-content');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (heroBgImg) heroBgImg.style.transform = `translateY(${y * 0.22}px)`;
+    if (heroContent && y < window.innerHeight) {
+      heroContent.style.transform = `translateY(${y * 0.12}px)`;
+    }
+  }, { passive: true });
+
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const el = document.querySelector(href);
+      if (!el) return;
+      e.preventDefault();
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    });
+  });
+
+  /* Detección de plataforma — los botones de descarga van al store correcto */
+  (function platformLinks(){
+    const ua = (navigator.userAgent || '').toLowerCase();
+    const isAndroid = /android/.test(ua);
+    const isIOS = /iphone|ipad|ipod/.test(ua) || (/macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    const APP_STORE = 'https://apps.apple.com/pa/app/ez-play/id6446805916';
+    const PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share';
+    if (!isAndroid && !isIOS) return;
+    const target = isAndroid ? PLAY_STORE : APP_STORE;
+    document.querySelectorAll('a.btn-reservar').forEach(a => { a.href = target; });
+  })();
+
+  /* Demo: fechas dinámicas para los partidos placeholder
+     (se reemplazan automáticamente cuando el endpoint esté conectado) */
+  (function fillDemoDates(){
+    const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    const dias  = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+    const today = new Date();
+    function next(targetDow) {
+      const d = new Date(today);
+      const diff = (targetDow - d.getDay() + 7) % 7 || 7;
+      d.setDate(d.getDate() + diff);
+      return d;
+    }
+    document.querySelectorAll('.partido-day[data-day]').forEach(el => {
+      const tag = el.dataset.day;
+      const d = tag === 'next-sun' ? next(0) : next(6);
+      el.textContent = `${dias[d.getDay()]} ${d.getDate()} ${meses[d.getMonth()]}`;
+    });
+  })();
+
+  /* Counter animation */
+  function animateCount(el, target, suffix = '') {
+    let start = 0;
+    const dur = 1400;
+    const fmt = (n) => n.toLocaleString('en-US');
+    const step = (ts) => {
+      if (!start) start = ts;
+      const prog = Math.min((ts - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - prog, 3);
+      el.textContent = fmt(Math.floor(ease * target)) + suffix;
+      if (prog < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target) + suffix;
+    };
+    requestAnimationFrame(step);
+  }
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-num[data-count]').forEach(n => {
+          animateCount(n, parseInt(n.dataset.count), n.dataset.suffix || '');
+        });
+      }
+    });
+  }, { threshold: 0.5 }).observe(document.querySelector('.hero-stats'));
+
+  /* Cupos bar animation on scroll */
+  const cuposObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.cupos-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => { bar.style.transition = 'width 1s cubic-bezier(.22,1,.36,1)'; bar.style.width = w; }, 100);
+        });
+        cuposObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.partido-card').forEach(c => cuposObs.observe(c));
+
+  /* ──────────────────────────────────────────────────────────
+     PARTIDOS EN TIEMPO REAL
+     ──────────────────────────────────────────────────────────
+     Cuando el equipo de desarrollo te dé la URL del endpoint,
+     pégala en PARTIDOS_API abajo. Nada más que cambiar.
+
+     El endpoint debe devolver un array JSON con este formato:
+     [
+       {
+         "deporte":        "futbol" | "volley_arena" | "volley_piso",
+         "fecha":          "2024-04-26",
+         "hora_inicio":    "07:00",
+         "hora_fin":       "09:00",
+         "venue":          "Costa del Este",
+         "cupos_total":    20,
+         "cupos_ocupados": 14,
+         "precio":         6.50,
+         "formato":        "10 vs 10",
+         "genero":         "Masculino" | "Mixto",
+         "nivel":          "General" | "Intermedio",
+         "estado":         "disponible" | "lleno" | "cancelado",
+         "foto_url":       null  // opcional, si existe usa esa foto
+       },
+       ...
+     ]
+
+     Si el endpoint usa Supabase directo (no una API propia),
+     descomenta PARTIDOS_HEADERS y pon tu anon key:
+  ────────────────────────────────────────────────────────── */
+
+  const PARTIDOS_API = 'https://ezplay-prod.onrender.com/public/games/active';
+
+  /* === Adaptadores de la API EZ Play === */
+  const _TZ = 'America/Panama';
+  const _GAMETYPE_MAP = {
+    SOCCER: 'futbol',
+    VOLLEYBALL_BEACH: 'volley_arena',
+    VOLLEYBALL_INDOOR: 'volley_piso',
+  };
+  const _GENDER_MAP = { MALE: 'Masculino', FEMALE: 'Femenino', MIXED: 'Mixto' };
+  const _LEVEL_MAP  = { BEGINNER: 'Principiante', INTERMEDIATE: 'Intermedio', ADVANCED: 'Avanzado' };
+
+  const _fechaLabelFmt = new Intl.DateTimeFormat('es-PA', { timeZone: _TZ, weekday:'short', day:'numeric', month:'short' });
+  const _hora12Fmt     = new Intl.DateTimeFormat('en-US',  { timeZone: _TZ, hour:'numeric', minute:'2-digit', hour12:true });
+
+  function _toDate(iso) {
+    if (!iso) return null;
+    const d = new Date(iso);
+    return isNaN(d) ? null : d;
+  }
+  /* "lun., 12 may." → "lun 12 may" (el CSS lo pasa a mayúsculas) */
+  function _fmtFechaLabel(d) {
+    return d ? _fechaLabelFmt.format(d).replace(/[.,]/g, '').replace(/\s+/g, ' ').trim() : '';
+  }
+  /* Rango de horas en 12h: "7:00–9:00 AM" cuando comparten periodo,
+     "11:30 AM – 1:00 PM" cuando lo cruzan. */
+  function _fmtHoraRange(start, end) {
+    if (!start || !end) return '';
+    const s = _hora12Fmt.format(start);   // "7:00 AM"
+    const e = _hora12Fmt.format(end);     // "9:00 AM"
+    const sP = s.slice(-2), eP = e.slice(-2);
+    if (sP === eP) return `${s.slice(0, -3)}–${e.slice(0, -3)} ${sP}`;
+    return `${s} – ${e}`;
+  }
+
+  function _adaptGame(g) {
+    const pd    = g.placeDetails || {};
+    const loc   = pd.location || {};
+    const start = _toDate(g.startDate);
+    const end   = _toDate(g.endDate);
+    const ocup  = Array.isArray(g.players) ? g.players.length : 0;
+    const tot   = Number(g.maxPlayers) || 0;
+    const foto  = Array.isArray(pd.imgs) && pd.imgs.length ? pd.imgs[0] : null;
+    return {
+      deporte:        _GAMETYPE_MAP[g.gameType] || g.gameType,
+      fecha_label:    _fmtFechaLabel(start),
+      horario:        _fmtHoraRange(start, end),
+      venue:          pd.name || loc.fullAddress || g.place || '',
+      cupos_total:    tot,
+      cupos_ocupados: ocup,
+      precio:         Number(g.price) || 0,
+      formato:        g.teamPlayers ? `${g.teamPlayers} vs ${g.teamPlayers}` : '',
+      genero:         _GENDER_MAP[g.genderType] || '',
+      nivel:          _LEVEL_MAP[g.level] || 'General',
+      estado:         g.status === false ? 'cancelado' : (tot > 0 && ocup >= tot ? 'lleno' : 'disponible'),
+      foto_url:       foto,
+    };
+  }
+
+  const _SPORT_FOTO  = {
+    futbol:       '/assets/fotos/futbol-1.jpg',
+    volley_arena: '/assets/fotos/volley-arena-2.jpg',
+    volley_piso:  '/assets/fotos/volley-piso-1.jpg',
+  };
+  const _SPORT_ICON  = { futbol:'⚽', volley_arena:'🏐', volley_piso:'🏐' };
+  const _SPORT_LABEL = { futbol:'Fútbol Masculino', volley_arena:'Vóley Playa', volley_piso:'Vóley Piso' };
+  const _PIN_SVG     = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+  const _LOGO        = '/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png';
+
+  function _buildCard(p) {
+    const libres  = Math.max(0, (p.cupos_total || 20) - (p.cupos_ocupados || 0));
+    const pct     = Math.min(100, Math.round(((p.cupos_ocupados || 0) / (p.cupos_total || 20)) * 100));
+    const stCls   = libres === 0 ? 'status-full' : libres <= 3 ? 'status-few' : 'status-ok';
+    const stLbl   = libres === 0 ? 'Lleno' : `${libres} cupos disponibles`;
+    const foto    = p.foto_url || _SPORT_FOTO[p.deporte] || _SPORT_FOTO.futbol;
+    const icon    = _SPORT_ICON[p.deporte]  || '🏅';
+    const dlbl    = _SPORT_LABEL[p.deporte] || p.deporte;
+    const precio  = Number(p.precio || 6.5).toFixed(2);
+    const fechaStr = p.fecha_label || '';
+    const horaStr  = p.horario || '';
+    const genIcon  = (p.genero || '').toLowerCase().includes('masc') ? '👨' : '⚤';
+    return `
+<div class="partido-card reveal">
+  <div class="partido-img">
+    <img src="${foto}" alt="${dlbl}" loading="lazy" />
+    <span class="partido-badge-sport">${icon} ${dlbl}</span>
+    <span class="partido-badge-status ${stCls}">${stLbl}</span>
+    <span class="partido-price-badge">$${precio}</span>
+  </div>
+  <div class="partido-body">
+    <div class="partido-datetime">
+      <span class="partido-day">${fechaStr}</span>
+      <span class="partido-time">${horaStr}</span>
     </div>
-  </section>
+    <div class="partido-venue">${_PIN_SVG} ${p.venue || ''} · Panamá</div>
+    <div class="cupos-track"><div class="cupos-fill" style="width:${pct}%"></div></div>
+    <div class="cupos-meta">
+      <span class="cupos-text">${p.cupos_ocupados || 0} de ${p.cupos_total || 20} cupos</span>
+      <span class="cupos-num">${libres} libres</span>
+    </div>
+    <div class="partido-info-row">
+      <span class="partido-info-pill">${icon} ${p.formato || ''}</span>
+      <span class="partido-info-pill">${genIcon} ${p.genero || ''}</span>
+      <span class="partido-info-pill">${p.nivel || ''}</span>
+      <span class="partido-organizer"><img src="${_LOGO}" alt="EZ Play" /> EZ Play</span>
+    </div>
+    <div class="partido-foot">
+      <div class="partido-price">$${precio} <small>/ cupo</small></div>
+      ${libres > 0
+        ? `<a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-reservar">Reservar →</a>`
+        : `<span class="btn-reservar" style="opacity:.45;cursor:default;pointer-events:none;">Lleno</span>`}
+    </div>
+  </div>
+</div>`;
+  }
+
+  async function loadPartidos() {
+    if (PARTIDOS_API === 'PEGAR_URL_AQUI') return;
+    const grid = document.getElementById('partidos-grid-dynamic');
+    if (!grid) return;
+    try {
+      const opts = typeof PARTIDOS_HEADERS !== 'undefined' ? { headers: PARTIDOS_HEADERS } : {};
+      const res  = await fetch(PARTIDOS_API, opts);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const raw  = await res.json();
+      const games = raw?.data?.games || (Array.isArray(raw) ? raw : raw?.data || []);
+      const list = games
+        .slice()
+        .sort((a, b) => new Date(a.startDate || 0) - new Date(b.startDate || 0))
+        .map(_adaptGame)
+        .filter(p => p.estado !== 'cancelado')
+        .slice(0, 3);
+      if (list.length === 0) return;
+      grid.innerHTML = list.map(_buildCard).join('');
+      grid.querySelectorAll('.partido-card').forEach(c => { io.observe(c); cuposObs.observe(c); });
+      const upd = document.getElementById('partidos-updated');
+      const t   = document.getElementById('partidos-updated-time');
+      if (upd && t) {
+        const now = new Date();
+        t.textContent = now.toLocaleTimeString('es-PA', { hour:'2-digit', minute:'2-digit' });
+        upd.style.display = 'block';
+      }
+    } catch(err) {
+      console.warn('[EZ Play] API de partidos no disponible, se muestran los partidos de ejemplo.', err);
+    }
+  }
+
+  loadPartidos();
+  setInterval(loadPartidos, 60000);
+
+  /* ──────────────────────────────────────────────────────────
+     MVPs EN TIEMPO REAL
+     ──────────────────────────────────────────────────────────
+     Cuando el equipo te dé la URL del endpoint,
+     pégala en MVPS_API abajo. Nada más que cambiar.
+
+     El endpoint debe devolver un array JSON con este formato:
+     [
+       {
+         "rank":         1,
+         "nombre":       "Kriss",
+         "deporte":      "volley_arena" | "futbol" | "volley_piso",
+         "partidos_mvp": 3,
+         "foto_url":     null   // URL de foto de perfil, opcional
+       },
+       ...
+     ]
+
+     Si el endpoint usa Supabase directo (no una API propia),
+     descomenta MVPS_HEADERS y pon tu anon key:
+  ────────────────────────────────────────────────────────── */
+
+  const MVPS_API = 'https://ezplay-prod.onrender.com/public/mvp/weekly';
+
+  /* Formatea created_at de un MVP como etiqueta tipo "DOM 10 MAY" en zona
+     horaria America/Panama. */
+  const _DOW_ES = { Sun:'DOM', Mon:'LUN', Tue:'MAR', Wed:'MIE', Thu:'JUE', Fri:'VIE', Sat:'SAB' };
+  const _MON_ES = { Jan:'ENE', Feb:'FEB', Mar:'MAR', Apr:'ABR', May:'MAY', Jun:'JUN', Jul:'JUL', Aug:'AGO', Sep:'SEP', Oct:'OCT', Nov:'NOV', Dec:'DIC' };
+  const _mvpDateParts = new Intl.DateTimeFormat('en-US', { timeZone: _TZ, weekday:'short', day:'numeric', month:'short' });
+  function _fmtMvpDate(iso) {
+    const d = _toDate(iso);
+    if (!d) return '';
+    const parts = _mvpDateParts.formatToParts(d);
+    const get = t => (parts.find(p => p.type === t) || {}).value || '';
+    return `${_DOW_ES[get('weekday')] || ''} ${get('day')} ${_MON_ES[get('month')] || ''}`.trim();
+  }
+
+  /* La API devuelve los registros por fecha descendente (más recientes
+     primero). Tomamos los 3 MVPs más recientes (deduplicando por usuario,
+     conservando su aparición más reciente como fecha mostrada) y
+     contamos cuántas veces fue MVP en la ventana de 7 días. */
+  function _adaptMvps(records) {
+    const byUid = new Map();
+    const order = [];
+    for (const r of records || []) {
+      if (!r || !r.uid) continue;
+      if (!byUid.has(r.uid)) {
+        const fullName = `${r.firstname || ''} ${r.lastname || ''}`.trim();
+        byUid.set(r.uid, {
+          uid: r.uid,
+          nombre: r.alias || fullName || 'MVP',
+          deporte: _GAMETYPE_MAP[r.gameType] || r.gameType,
+          partidos_mvp: 0,
+          foto_url: r.profilePic || null,
+          fecha_label: _fmtMvpDate(r.created_at),
+        });
+        order.push(r.uid);
+      }
+      byUid.get(r.uid).partidos_mvp += 1;
+    }
+    return order.slice(0, 3).map(uid => byUid.get(uid));
+  }
+
+  const _MVP_SPORT_LABEL = {
+    futbol:       '⚽ Fútbol',
+    volley_arena: '🏐 Vóley Playa',
+    volley_piso:  '🏐 Vóley Piso',
+  };
+
+  function _buildMvpCard(m) {
+    const sport   = _MVP_SPORT_LABEL[m.deporte] || m.deporte || '';
+    const initial = (m.nombre || '?')[0].toUpperCase();
+    const avatar  = m.foto_url
+      ? `<img src="${m.foto_url}" alt="${m.nombre}" />`
+      : initial;
+    const label   = m.fecha_label || 'MVP';
+    return `
+<div class="mvp-card reveal">
+  <span class="mvp-rank">${label}</span>
+  <div class="mvp-avatar">${avatar}</div>
+  <div class="mvp-name">${m.nombre || ''}</div>
+  <div class="mvp-sport">${sport}</div>
+  <div class="mvp-stat">${m.partidos_mvp || 0}</div>
+  <div class="mvp-stat-label">Partidos MVP</div>
+</div>`;
+  }
+
+  async function loadMVPs() {
+    if (MVPS_API === 'PEGAR_URL_AQUI') return;
+    const grid = document.querySelector('.mvps-grid');
+    if (!grid) return;
+    try {
+      const opts = typeof MVPS_HEADERS !== 'undefined' ? { headers: MVPS_HEADERS } : {};
+      const res  = await fetch(MVPS_API, opts);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const raw  = await res.json();
+      const records = raw?.data?.records || (Array.isArray(raw) ? raw : raw?.data || []);
+      const list = _adaptMvps(records);
+      if (list.length === 0) return;
+      grid.innerHTML = list.map(_buildMvpCard).join('');
+      grid.querySelectorAll('.mvp-card').forEach(el => io.observe(el));
+    } catch(err) {
+      console.warn('[EZ Play] API de MVPs no disponible, se muestran los MVPs de ejemplo.', err);
+    }
+  }
+
+  loadMVPs();
+  setInterval(loadMVPs, 300000); // refresca cada 5 minutos
+</script>
+
 </MainLayout>
