@@ -244,8 +244,8 @@
       animation:pulse-dot 2.2s infinite;
     }
     .hero-title {
-      font-size:clamp(5rem, 14vw, 14rem);
-      font-weight:900; line-height:.92;
+      font-size:clamp(4.5rem, 11vw, 9.5rem);
+      font-weight:900; line-height:.9;
       margin-bottom:.6rem;
     }
     .hero-title .red { color:var(--red); }
@@ -1336,5 +1336,129 @@
     .beneficios-img video {
       width:100%; height:100%; object-fit:cover;
       display:block; transition:transform .6s;
+    }
+
+    /* ── QUIÉNES SOMOS ── */
+    #nosotros {
+      padding: 100px 0;
+      background: #0c0c0c;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .nosotros-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .story-block {
+      max-width: 740px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+    .story-lead {
+      font-size: 1.12rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      color: var(--g1);
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
+    }
+    .story-body {
+      font-size: .97rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      color: var(--g2);
+      line-height: 1.8;
+    }
+    .story-body strong { color: #fff; font-weight: 600; }
+
+    .founders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .founder-card {
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform .25s ease, border-color .25s;
+    }
+    .founder-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(194,0,0,.35);
+    }
+    .founder-photo {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .founder-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      transition: transform .45s ease;
+      display: block;
+    }
+    .founder-card:hover .founder-photo img { transform: scale(1.04); }
+    .founder-info { padding: 20px 22px 24px; }
+    .founder-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .founder-role {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .founder-desc {
+      font-family: 'Barlow', sans-serif;
+      font-size: .87rem;
+      font-weight: 300;
+      color: var(--g2);
+      line-height: 1.65;
+    }
+
+    .founders-team-photo {
+      border-radius: 14px;
+      overflow: hidden;
+      max-height: 460px;
+    }
+    .founders-team-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .founders-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .founders-grid { grid-template-columns: 1fr; max-width: 340px; margin-inline: auto; }
+      .story-lead { font-size: 1rem; }
+    }
+
+    /* ── MVPs dentro de Comunidad ── */
+    .mvps-block { padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 64px; }
+
+    /* ── FAQ compacto dentro de B2B ── */
+    .faq-compact { margin-top: 72px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 64px; }
+    .faq-compact-header { text-align: center; margin-bottom: 36px; }
+    .faq-compact-header h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      color: #fff;
+      margin-top: 8px;
     }
     .beneficios-img:hover video { transform:scale(1.04); }

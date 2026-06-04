@@ -1,5 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+const partidosApi = import.meta.env.DEV
+  ? '/__proxy/games'
+  : 'https://ezplay-prod.onrender.com/public/games/active';
+const mvpsApi = import.meta.env.DEV
+  ? '/__proxy/mvp'
+  : 'https://ezplay-prod.onrender.com/public/mvp/weekly';
 ---
 
 <MainLayout
@@ -14,13 +20,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menú principal">
   <button class="mobile-close" id="mobileClose" aria-label="Cerrar menú">✕</button>
   <a href="#partidos" onclick="closeMob()">Partidos</a>
-  <a href="#mvps" onclick="closeMob()">MVPs</a>
   <a href="#deportes" onclick="closeMob()">Deportes</a>
   <a href="#como" onclick="closeMob()">Cómo funciona</a>
   <a href="#app" onclick="closeMob()">Descargar</a>
   <a href="#comunidad" onclick="closeMob()">Comunidad</a>
-  <a href="#faq" onclick="closeMob()">FAQ</a>
   <a href="#b2b" onclick="closeMob()">Empresas</a>
+  <a href="#nosotros" onclick="closeMob()">Nosotros</a>
   <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
     <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red">App Store</a>
     <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn btn-outline">Google Play</a>
@@ -39,13 +44,11 @@ import MainLayout from "../layouts/MainLayout.astro";
       </a>
       <ul class="nav-links">
         <li><a href="#partidos">Partidos</a></li>
-        <li><a href="#mvps">MVPs</a></li>
         <li><a href="#deportes">Deportes</a></li>
         <li><a href="#como">Cómo funciona</a></li>
-        <li><a href="#app">Descargar</a></li>
         <li><a href="#comunidad">Comunidad</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li><a href="#b2b">Empresas</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
       </ul>
       <a href="#app" class="btn btn-red nav-cta desk">Descargar app</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
@@ -277,54 +280,6 @@ import MainLayout from "../layouts/MainLayout.astro";
   </div>
 </section>
 
-<!-- MVPs DE LA SEMANA -->
-<section id="mvps">
-  <div class="container">
-
-    <div class="mvps-header">
-      <div class="mvps-header-left reveal-left">
-        <div class="mvps-live-badge"><span class="live-dot"></span>Se actualiza cada semana</div>
-        <span class="label">Comunidad</span>
-        <h2>MVPs de<br>la Semana</h2>
-      </div>
-      <p class="reveal-right" style="max-width:360px;text-align:right;">
-        Los jugadores que más destacaron en los partidos recientes. Los MVPs se actualizan automáticamente desde el app cada semana.
-      </p>
-    </div>
-
-    <div class="mvps-grid">
-
-      <div class="mvp-card reveal d1">
-        <span class="mvp-rank">MVP</span>
-        <div class="mvp-avatar">K</div>
-        <div class="mvp-name">Kriss</div>
-        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> Vóley Playa</div>
-      </div>
-
-      <div class="mvp-card reveal d2">
-        <span class="mvp-rank">MVP</span>
-        <div class="mvp-avatar">M</div>
-        <div class="mvp-name">Mateo</div>
-        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> Fútbol</div>
-      </div>
-
-      <div class="mvp-card reveal d3">
-        <span class="mvp-rank">MVP</span>
-        <div class="mvp-avatar">W</div>
-        <div class="mvp-name">Will</div>
-        <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> Vóley Piso</div>
-      </div>
-
-    </div>
-
-    <div class="mvps-note reveal">
-      <div class="mvps-note-dot"></div>
-      <p><strong>Datos en tiempo real desde el app.</strong> Los MVPs y sus estadísticas se actualizan automáticamente cada semana según el rendimiento registrado por los árbitros en cada partido.</p>
-    </div>
-
-  </div>
-</section>
-
 <!-- DEPORTES -->
 <section id="deportes">
   <div class="container">
@@ -424,104 +379,6 @@ import MainLayout from "../layouts/MainLayout.astro";
   </div>
 </section>
 
-<!-- TODO LISTO. SOLO JUEGAS. (físico + app, fusión premium) -->
-<section id="features">
-  <div class="container">
-    <div class="features-header reveal">
-      <span class="label">Todo listo</span>
-      <h2>Solo<br>juegas</h2>
-      <p>No traes nada, no organizas nada. Llegas con ganas — el resto está cubierto en la cancha y en la app.</p>
-    </div>
-
-    <div class="features-inner">
-      <div class="features-text reveal-left">
-
-        <div class="feat-block">
-          <span class="feat-block-title">En la cancha</span>
-          <div class="feat-list">
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-flag"></i></div>
-              <div class="feat-content">
-                <h4>Árbitro profesional</h4>
-                <p>Cada partido con árbitro oficial. Decisiones justas, tiempos respetados.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-shirt"></i></div>
-              <div class="feat-content">
-                <h4>Balón y petos incluidos</h4>
-                <p>Llegas y todo está listo: balón de calidad y peto de tu color de equipo.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
-              <div class="feat-content">
-                <h4>Cancha reservada</h4>
-                <p>El espacio está apartado y listo desde la hora exacta de tu partido.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-users"></i></div>
-              <div class="feat-content">
-                <h4>Cupos limitados</h4>
-                <p>Siempre partido completo. Sin esperas ni cancelaciones de último minuto.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-block">
-          <span class="feat-block-title">En el app</span>
-          <div class="feat-list">
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-ranking-star"></i></div>
-              <div class="feat-content">
-                <h4>Marcador en vivo</h4>
-                <p>El árbitro actualiza el puntaje en tiempo real. Lo sigues desde tu celular.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-stopwatch"></i></div>
-              <div class="feat-content">
-                <h4>Temporizador en cancha</h4>
-                <p>En fútbol el tiempo se lleva con un temporizador visible para todos los jugadores.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-shuffle"></i></div>
-              <div class="feat-content">
-                <h4>Equipos automáticos</h4>
-                <p>La app divide los equipos. Ves en qué equipo quedaste antes de llegar a la cancha.</p>
-              </div>
-            </div>
-            <div class="feat-item">
-              <div class="feat-icon-wrap"><i class="fa-solid fa-credit-card"></i></div>
-              <div class="feat-content">
-                <h4>Pago desde el celular</h4>
-                <p>Reservas y pagas en segundos. Sin efectivo, sin filas, sin papeles.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="features-visual reveal-right">
-        <div class="app-glow"></div>
-        <div class="dual-phones">
-          <div class="app-screenshot-phone">
-            <img src="/assets/CAPTURA%20DEL%20APP/IMG_1892.jpg" alt="EZ Play — Pantalla Home" loading="lazy" />
-          </div>
-          <div class="app-screenshot-phone" style="margin-top:44px;">
-            <div class="app-screenshot-phone-glow"></div>
-            <img src="/assets/CAPTURA%20DEL%20APP/IMG_1897.jpg" alt="EZ Play — Jugar" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- DESCARGA LA APP -->
 <section id="app">
   <div class="container">
@@ -565,12 +422,54 @@ import MainLayout from "../layouts/MainLayout.astro";
   </div>
 </section>
 
-<!-- COMUNIDAD -->
+<!-- COMUNIDAD + MVPs -->
 <section id="comunidad">
   <div class="container">
+
+    <!-- MVPs -->
+    <div class="mvps-block" id="mvps">
+      <div class="mvps-header">
+        <div class="mvps-header-left reveal-left">
+          <div class="mvps-live-badge"><span class="live-dot"></span>Se actualiza cada semana</div>
+          <span class="label">Comunidad</span>
+          <h2>MVPs de<br>la Semana</h2>
+        </div>
+        <p class="reveal-right" style="max-width:360px;text-align:right;">
+          Los jugadores que más destacaron en los partidos recientes. Se actualizan automáticamente desde la app cada semana.
+        </p>
+      </div>
+
+      <div class="mvps-grid">
+        <div class="mvp-card reveal d1">
+          <span class="mvp-rank">MVP</span>
+          <div class="mvp-avatar">K</div>
+          <div class="mvp-name">Kriss</div>
+          <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-beach-icon.svg" alt=""> Vóley Playa</div>
+        </div>
+        <div class="mvp-card reveal d2">
+          <span class="mvp-rank">MVP</span>
+          <div class="mvp-avatar">M</div>
+          <div class="mvp-name">Mateo</div>
+          <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/soccer-icon.svg" alt=""> Fútbol</div>
+        </div>
+        <div class="mvp-card reveal d3">
+          <span class="mvp-rank">MVP</span>
+          <div class="mvp-avatar">W</div>
+          <div class="mvp-name">Will</div>
+          <div class="mvp-sport"><img class="sport-icon" src="/assets/icons/volley-indoor-icon.svg" alt=""> Vóley Piso</div>
+        </div>
+      </div>
+
+      <div class="mvps-note reveal">
+        <div class="mvps-note-dot"></div>
+        <p><strong>Datos en tiempo real desde el app.</strong> Los MVPs se actualizan automáticamente cada semana según el rendimiento registrado por los árbitros en cada partido.</p>
+      </div>
+    </div>
+
+    <!-- Redes y WhatsApp -->
     <div class="comunidad-inner">
       <div class="reveal-left">
-        <span class="label">Comunidad</span>
+        <span class="label">Síguenos</span>
         <h2>Únete a<br>la comunidad</h2>
         <p>Entérate de nuevos partidos, horarios y novedades antes que nadie. La comunidad EZ Play crece cada semana en Panamá.</p>
         <div class="social-links" style="margin-bottom:3px;">
@@ -588,17 +487,13 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="reveal-right">
         <div class="wha-card">
           <div class="wha-header">
-            <div class="wha-icon">
-              <i class="fa-brands fa-whatsapp"></i>
-            </div>
+            <div class="wha-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
               <span class="wha-title">WhatsApp EZ Play</span>
               <span class="wha-sub">Comunidad oficial en Panamá</span>
             </div>
           </div>
-          <p class="wha-desc">
-            Entérate primero de los partidos disponibles, nuevos horarios y promociones exclusivas para miembros de la comunidad.
-          </p>
+          <p class="wha-desc">Entérate primero de los partidos disponibles, nuevos horarios y promociones exclusivas para miembros de la comunidad.</p>
           <a href="https://chat.whatsapp.com/JQPI6x3Jk473y6f1YdbJmE" target="_blank" class="wha-btn">
             <i class="fa-brands fa-whatsapp"></i>
             Unirme a la comunidad
@@ -607,114 +502,10 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
     </div>
 
-    <!-- FEED STRIP: 8 reels horizontales -->
-    <div class="ig-feed-strip reveal">
-      <div class="ig-feed-header">
-        <span class="ig-feed-title">Lo que pasa en el campo</span>
-        <span class="ig-feed-hint">Desliza →</span>
-        <a href="https://www.instagram.com/ezplaylatam?igsh=OXVsZjVoMGowY3cw" target="_blank" class="ig-feed-link">Ver todo en @ezplaylatam →</a>
-      </div>
-      <div class="ig-feed-row">
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DMBNxMPPkUe/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1914.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DXhTb69k7aG/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1915.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DWy5DhpiFf-/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1916.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DTbClO7D6Me/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1917.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DRFg-hejzEs/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1918.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DN38n2cj0pS/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1922.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DF8K1WMuALH/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1923.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-        <div class="ig-feed-item">
-          <a href="https://www.instagram.com/reel/DQujLSGj8hA/" target="_blank" class="ig-reel-card">
-            <img src="/assets/CAPTURAS%20INSTAGRAM/IMG_1924.jpg" alt="" loading="lazy" />
-            <div class="ig-reel-overlay"><div class="ig-reel-play"><i class="fa-solid fa-play" style="font-size:10px;color:white;"></i></div><span class="ig-reel-label">Reel</span></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="container">
-    <div class="faq-header reveal">
-      <span class="label" style="margin-bottom:.6rem;">Preguntas frecuentes</span>
-      <h2>Lo que<br>te preguntas</h2>
-      <p style="margin-top:1rem;">Las dudas más comunes antes de tu primer partido.</p>
-    </div>
-    <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary>¿Necesito experiencia para jugar?</summary>
-        <div class="faq-body">No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Si eres nuevo solo descarga la app, reserva y llega: el árbitro y los equipos están listos.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Qué pasa si llueve o cancelan el partido?</summary>
-        <div class="faq-body">Si EZ Play cancela el partido por clima o cualquier motivo, el monto pagado se reembolsa automáticamente en <strong>EZ Créditos</strong> dentro de tu cuenta para que te puedas anotar en otro partido o fecha cuando quieras.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Puedo cancelar mi reserva?</summary>
-        <div class="faq-body">Sí. Si cancelas con al menos <strong>12 horas de anticipación</strong>, la app te reembolsa el 100% en <strong>EZ Créditos</strong> para que los uses en otro partido o fecha. Cancelaciones con menos de 12 horas no son reembolsables porque la cancha y los recursos ya están comprometidos.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Tengo que llevar algo? ¿Balón? ¿Petos?</summary>
-        <div class="faq-body">Solo tu ropa deportiva. El balón, los petos por color de equipo, el árbitro y la cancha — todo está incluido en tu cupo.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Cómo se arman los equipos?</summary>
-        <div class="faq-body">La app divide los equipos automáticamente antes del partido. Llegas, ves en qué equipo quedaste y te pones el peto del color asignado.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Cuánto cuesta jugar?</summary>
-        <div class="faq-body">$6.50 por cupo en la mayoría de partidos. El precio exacto lo ves en cada partido antes de reservar — sin sorpresas.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿En qué zonas de Panamá hay partidos?</summary>
-        <div class="faq-body">Actualmente operamos en varias canchas de la ciudad de Panamá (Costa del Este, Xspark, IPA Cancha y otras). En la app ves todas las canchas activas y los próximos partidos disponibles.</div>
-      </details>
-      <details class="faq-item">
-        <summary>¿Cómo se eligen los MVPs?</summary>
-        <div class="faq-body">Los árbitros registran el desempeño de cada jugador en tiempo real. Cada semana la app destaca a los MVPs según los partidos jugados y el rendimiento registrado.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- B2B -->
+<!-- B2B + FAQ -->
 <section id="b2b">
   <div class="container">
     <div class="b2b-inner">
@@ -749,6 +540,95 @@ import MainLayout from "../layouts/MainLayout.astro";
         </div>
       </div>
     </div>
+
+    <!-- FAQ compacto -->
+    <div class="faq-compact" id="faq">
+      <div class="faq-compact-header reveal">
+        <span class="label">Preguntas frecuentes</span>
+        <h3>Lo que te preguntas</h3>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>¿Necesito experiencia para jugar?</summary>
+          <div class="faq-body">No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Descarga la app, reserva y llega: árbitro y equipos listos.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Tengo que llevar balón o petos?</summary>
+          <div class="faq-body">Solo tu ropa deportiva. Balón, petos por equipo, árbitro y cancha — todo incluido en tu cupo.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué pasa si llueve o cancelan?</summary>
+          <div class="faq-body">EZ Play te reembolsa el 100% en <strong>EZ Créditos</strong> para usarlos en otro partido cuando quieras.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo cancelar mi reserva?</summary>
+          <div class="faq-body">Sí, con al menos <strong>12 horas de anticipación</strong> recibes el reembolso completo en EZ Créditos.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta jugar?</summary>
+          <div class="faq-body">$6.50 por cupo en la mayoría de partidos. El precio exacto aparece antes de reservar — sin sorpresas.</div>
+        </details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="nosotros">
+  <div class="container">
+
+    <div class="nosotros-header reveal">
+      <span class="label">Quiénes somos</span>
+      <h2>Tres amigos.<br>Una idea real.</h2>
+    </div>
+
+    <div class="story-block reveal">
+      <p class="story-lead">Panamá vive el deporte. Pero organizarlo — encontrar cancha, armar equipo, conseguir árbitro — siempre fue un dolor de cabeza. Dos panameños estudiando en Barcelona se hicieron la pregunta una noche: ¿y si lo hacemos fácil, para cualquier deporte?</p>
+      <p class="story-body">Roberto y Erwing volvieron de España con una idea sin forma todavía. La pieza que faltaba la encontraron en una cancha de barrio — Richard, el amigo de escuela desde los 9 años, que resultó ser ingeniero de sistemas. Arrancaron en septiembre de 2021: domingos de reuniones virtuales, cientos de borradores y un nombre pensado para no tener límites — <strong>EZ Play</strong>, sin apellido de deporte. El <strong>21 de diciembre de 2023</strong> se jugó el primer partido en Albrook Gol con amigos y desconocidos que simplemente quisieron jugar. Hoy somos más de <strong>3,000 jugadores activos</strong>, tres deportes en cancha y ningún techo.</p>
+    </div>
+
+    <div class="founders-grid">
+
+      <div class="founder-card reveal d1">
+        <div class="founder-photo">
+          <img src="/assets/founders/founder-erwing.jpg" alt="Erwing Ordóñez" />
+        </div>
+        <div class="founder-info">
+          <div class="founder-name">Erwing Ordóñez</div>
+          <div class="founder-role">Co-fundador · Comercial</div>
+          <p class="founder-desc">Lic. en Marketing y Máster en Marketing Digital (Barcelona). Lidera la estrategia comercial, el crecimiento y las relaciones de negocio que impulsan a EZ Play.</p>
+        </div>
+      </div>
+
+      <div class="founder-card reveal d2">
+        <div class="founder-photo">
+          <img src="/assets/founders/founder-richard.jpg" alt="Richard Hearn" />
+        </div>
+        <div class="founder-info">
+          <div class="founder-name">Richard Hearn</div>
+          <div class="founder-role">Co-fundador · Tecnología</div>
+          <p class="founder-desc">Ingeniero en Sistemas. Diseñó y construyó la plataforma EZ Play desde cero — la app, el backend y todo lo que hace posible cada partido en tiempo real.</p>
+        </div>
+      </div>
+
+      <div class="founder-card reveal d3">
+        <div class="founder-photo">
+          <img src="/assets/founders/founder-roberto.jpg" alt="Roberto Biendicho" />
+        </div>
+        <div class="founder-info">
+          <div class="founder-name">Roberto Biendicho</div>
+          <div class="founder-role">Co-fundador · Operaciones</div>
+          <p class="founder-desc">Lic. en Administración de Negocios y Marketing + MBA. Lidera las operaciones, alianzas estratégicas y la expansión de EZ Play en Panamá.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="founders-team-photo reveal">
+      <img src="/assets/founders/founders-team.jpg" alt="Fundadores de EZ Play — Erwing, Roberto y Richard" />
+    </div>
+
   </div>
 </section>
 
@@ -810,6 +690,10 @@ import MainLayout from "../layouts/MainLayout.astro";
   </div>
 </footer>
 
+<script define:vars={{ partidosApi, mvpsApi }}>
+  window.__EZ_PARTIDOS_API = partidosApi;
+  window.__EZ_MVPS_API = mvpsApi;
+</script>
 <script is:inline>
   /* NAV */
   const nav = document.getElementById('nav');
@@ -950,7 +834,7 @@ import MainLayout from "../layouts/MainLayout.astro";
      descomenta PARTIDOS_HEADERS y pon tu anon key:
   ────────────────────────────────────────────────────────── */
 
-  const PARTIDOS_API = 'https://ezplay-prod.onrender.com/public/games/active';
+  const PARTIDOS_API = window.__EZ_PARTIDOS_API || 'https://ezplay-prod.onrender.com/public/games/active';
 
   /* === Adaptadores de la API EZ Play === */
   const _TZ = 'America/Panama';
@@ -1123,7 +1007,7 @@ import MainLayout from "../layouts/MainLayout.astro";
      descomenta MVPS_HEADERS y pon tu anon key:
   ────────────────────────────────────────────────────────── */
 
-  const MVPS_API = 'https://ezplay-prod.onrender.com/public/mvp/weekly';
+  const MVPS_API = window.__EZ_MVPS_API || 'https://ezplay-prod.onrender.com/public/mvp/weekly';
 
   /* Formatea created_at de un MVP como etiqueta tipo "DOM 10 MAY" en zona
      horaria America/Panama. */
