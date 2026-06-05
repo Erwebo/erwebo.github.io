@@ -6,14 +6,28 @@ const partidosApi = import.meta.env.DEV
 const mvpsApi = import.meta.env.DEV
   ? '/__proxy/mvp'
   : 'https://ezplay-prod.onrender.com/public/mvp/weekly';
+
+// Datos estructurados de Preguntas Frecuentes (para resultados enriquecidos en Google)
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Necesito experiencia para jugar fútbol o vóley en EZ Play?", "acceptedAnswer": { "@type": "Answer", "text": "No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Descarga la app, reserva y llega: árbitro y equipos listos." } },
+    { "@type": "Question", "name": "¿Tengo que llevar balón o petos?", "acceptedAnswer": { "@type": "Answer", "text": "Solo tu ropa deportiva. Balón, petos por equipo, árbitro y cancha — todo incluido en tu cupo." } },
+    { "@type": "Question", "name": "¿Qué pasa si llueve o cancelan el partido?", "acceptedAnswer": { "@type": "Answer", "text": "EZ Play te reembolsa el 100% en EZ Créditos para usarlos en otro partido cuando quieras." } },
+    { "@type": "Question", "name": "¿Puedo cancelar mi reserva?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, con al menos 12 horas de anticipación recibes el reembolso completo en EZ Créditos." } },
+    { "@type": "Question", "name": "¿Cuánto cuesta jugar en EZ Play?", "acceptedAnswer": { "@type": "Answer", "text": "$6.50 por cupo en la mayoría de partidos en Panamá. El precio exacto aparece antes de reservar — sin sorpresas." } }
+  ]
+};
 ---
 
 <MainLayout
-  title="EZ Play · Reserva tu cupo y juega fútbol y volleyball en Panamá"
-  description="Reserva tu cupo y juega fútbol o volleyball en Panamá. +3,000 jugadores, +500 partidos organizados. Árbitro, balón, petos y equipos listos. Solo descargas la app."
+  title="EZ Play · Fútbol, vóley y birrias en Panamá | Reserva tu cupo"
+  description="Reserva tu cupo y juega fútbol, vóley playa y birrias en Panamá. Partidos con árbitro, balón, petos y equipos listos. +3,000 jugadores. Descarga la app."
   canonicalUrl="https://ezplayapp.com"
 >
   <link rel="preload" as="image" href="/assets/fotos/hero-partido.jpg" fetchpriority="high" slot="head" />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} slot="head" />
 
 
 <!-- MOBILE MENU -->
@@ -71,10 +85,11 @@ const mvpsApi = import.meta.env.DEV
       <h1 class="hero-title">
         Llega.<br>
         <span class="red">Juega.</span>
+        <span class="sr-only">Birrias de fútbol, vóley playa y vóley de piso en Panamá — reserva tu cupo y juega con EZ Play.</span>
       </h1>
       <div class="hero-sub">Sin grupos de WhatsApp. Sin armar equipo. Sin perder tiempo.</div>
       <p class="hero-desc">
-        +3,000 jugadores ya reservan partidos en Panamá con EZ Play. Cancha, árbitro, balón y petos — todo listo cuando llegas.
+        +3,000 jugadores ya reservan partidos de fútbol y vóley en Panamá con EZ Play. Cancha, árbitro, balón y petos — todo listo cuando llegas.
       </p>
       <div class="hero-stores">
         <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn-store">
@@ -289,13 +304,13 @@ const mvpsApi = import.meta.env.DEV
         <h2>La energía<br>real</h2>
       </div>
       <p class="reveal-right" style="max-width:380px;text-align:right;">
-        Volleyball de arena, volleyball de piso y fútbol — todos con árbitro, balones y equipos organizados por la app.
+        Vóley playa, vóley de piso y fútbol en Panamá — todos con árbitro, balones y equipos organizados por la app.
       </p>
     </div>
     <div class="deportes-grid">
 
       <div class="deporte-card reveal d1">
-        <div class="dc-bg"><img src="/assets/fotos/volley-arena-1.jpg" alt="Volleyball de Arena" loading="lazy" /></div>
+        <div class="dc-bg"><img src="/assets/fotos/volley-arena-1.jpg" alt="Vóley playa en Panamá con EZ Play" loading="lazy" /></div>
         <div class="dc-overlay"></div>
         <div class="dc-content">
           <span class="dc-category">Mixto</span>
@@ -311,7 +326,7 @@ const mvpsApi = import.meta.env.DEV
       </div>
 
       <div class="deporte-card reveal d2">
-        <div class="dc-bg"><img src="/assets/fotos/volley-piso-2.jpg" alt="Volleyball de Piso" loading="lazy" /></div>
+        <div class="dc-bg"><img src="/assets/fotos/volley-piso-2.jpg" alt="Vóley de piso en Panamá con EZ Play" loading="lazy" /></div>
         <div class="dc-overlay"></div>
         <div class="dc-content">
           <span class="dc-category">Mixto</span>
@@ -327,7 +342,7 @@ const mvpsApi = import.meta.env.DEV
       </div>
 
       <div class="deporte-card reveal d3">
-        <div class="dc-bg"><img src="/assets/fotos/futbol-1.jpg" alt="Fútbol" loading="lazy" /></div>
+        <div class="dc-bg"><img src="/assets/fotos/futbol-1.jpg" alt="Birria de fútbol en Panamá con EZ Play" loading="lazy" /></div>
         <div class="dc-overlay"></div>
         <div class="dc-content">
           <span class="dc-category">Masculino</span>
@@ -643,7 +658,7 @@ const mvpsApi = import.meta.env.DEV
           </div>
           <span class="footer-brand-name">EZPLAY</span>
         </div>
-        <p>Reserva tu cupo. Llega. Juega. Sin complicaciones. Disponible en Panamá para iOS y Android.</p>
+        <p>Reserva tu cupo y juega fútbol, vóley playa y birrias en Panamá. Llega y juega, sin complicaciones. Disponible para iOS y Android.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <a href="https://apps.apple.com/pa/app/ez-play/id6446805916" target="_blank" class="btn btn-red" style="font-size:.76rem;padding:9px 20px;">App Store</a>
           <a href="https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share" target="_blank" class="btn btn-outline" style="font-size:.76rem;padding:9px 20px;">Google Play</a>
@@ -652,9 +667,9 @@ const mvpsApi = import.meta.env.DEV
       <div class="footer-col">
         <h4>Deportes</h4>
         <ul class="footer-links">
-          <li><a href="#deportes">Volleyball de Arena</a></li>
-          <li><a href="#deportes">Volleyball de Piso</a></li>
-          <li><a href="#deportes">Fútbol Masculino</a></li>
+          <li><a href="#deportes">Vóley Playa en Panamá</a></li>
+          <li><a href="#deportes">Vóley de Piso en Panamá</a></li>
+          <li><a href="#deportes">Fútbol en Panamá</a></li>
         </ul>
       </div>
       <div class="footer-col">

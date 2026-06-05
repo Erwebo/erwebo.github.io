@@ -48,6 +48,13 @@
     p  { font-size: 1rem; color: var(--g2); line-height: 1.8; font-weight: 300; }
     a  { text-decoration: none; color: inherit; }
 
+    /* Texto solo para SEO / lectores de pantalla — invisible en pantalla */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
     .container { max-width: 1200px; margin: 0 auto; padding: 0 44px; }
 
     .label {
