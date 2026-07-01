@@ -1,0 +1,172 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+export interface FaqItem { q: string; a: string; }
+export interface Point { h: string; p: string; }
+export interface RelLink { href: string; label: string; }
+
+interface Props {
+  sport: string;            // "Fútbol", "Vóley playa", ...
+  h1: string;
+  metaTitle: string;
+  metaDescription: string;
+  canonical: string;
+  image: string;            // /assets/fotos/...
+  imageAlt: string;
+  lead: string;
+  points: Point[];
+  faq: FaqItem[];
+  related: RelLink[];
+}
+
+const { sport, h1, metaTitle, metaDescription, canonical, image, imageAlt, lead, points, faq, related } = Astro.props;
+
+const APP_STORE = "https://apps.apple.com/pa/app/ez-play/id6446805916";
+const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+---
+
+<MainLayout title={metaTitle} description={metaDescription} canonicalUrl={canonical}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <!-- HEADER -->
+  <header class="lp-nav">
+    <div class="container lp-nav-inner">
+      <a href="/" class="lp-logo" aria-label="EZ Play — inicio">
+        <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" />
+        <span>EZPLAY</span>
+      </a>
+      <a href={PLAY_STORE} target="_blank" rel="noopener" class="btn btn-red lp-nav-cta">Descargar app</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="lp-hero">
+    <div class="lp-hero-bg"><img src={image} alt={imageAlt} /></div>
+    <div class="container lp-hero-inner">
+      <span class="label">{sport} en Panamá</span>
+      <h1>{h1}</h1>
+      <p class="lp-lead">{lead}</p>
+      <div class="lp-cta">
+        <a href={APP_STORE} target="_blank" rel="noopener" class="btn btn-red"><i class="fa-brands fa-apple"></i> App Store</a>
+        <a href={PLAY_STORE} target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-google-play"></i> Google Play</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUNTOS -->
+  <section class="lp-section">
+    <div class="container">
+      <div class="lp-points">
+        {points.map((pt) => (
+          <div class="lp-point">
+            <h2>{pt.h}</h2>
+            <p set:html={pt.p}></p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-section lp-faq">
+    <div class="container">
+      <span class="label">Preguntas frecuentes</span>
+      <h2 class="lp-h2">Sobre {sport.toLowerCase()} en Panamá</h2>
+      <div class="faq-list">
+        {faq.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <div class="faq-body">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="lp-section lp-final">
+    <div class="container">
+      <h2 class="lp-h2">Reserva tu cupo y llega a jugar</h2>
+      <p class="lp-final-p">Cancha, árbitro, balón y petos incluidos. Descarga EZ Play y reserva en segundos.</p>
+      <div class="lp-cta lp-cta-center">
+        <a href={APP_STORE} target="_blank" rel="noopener" class="btn btn-red"><i class="fa-brands fa-apple"></i> App Store</a>
+        <a href={PLAY_STORE} target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-google-play"></i> Google Play</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <div class="container lp-footer-inner">
+      <div class="lp-footer-links">
+        <a href="/">Inicio</a>
+        {related.map((r) => <a href={r.href}>{r.label}</a>)}
+      </div>
+      <span class="lp-footer-copy">© 2026 EZ Play · Panamá</span>
+    </div>
+  </footer>
+</MainLayout>
+
+<style>
+  .lp-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(7,7,7,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-nav-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+  .lp-logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 800; letter-spacing: .04em; font-style: italic; }
+  .lp-logo img { height: 30px; width: auto; }
+  .lp-nav-cta { padding: 9px 20px; font-size: .8rem; }
+
+  .lp-hero { position: relative; min-height: 66vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .lp-hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .lp-hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.4); }
+  .lp-hero::after {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(7,7,7,.4) 0%, rgba(7,7,7,.2) 45%, rgba(7,7,7,.85) 85%, var(--bg) 100%);
+  }
+  .lp-hero-inner { position: relative; z-index: 2; padding-top: 120px; padding-bottom: 70px; }
+  .lp-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 900; line-height: .98;
+    text-transform: uppercase; margin: .4rem 0 1rem; max-width: 16ch;
+  }
+  .lp-lead { color: var(--g2); max-width: 60ch; font-size: 1.05rem; line-height: 1.7; }
+  .lp-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 2rem; }
+  .lp-cta .btn i { margin-right: 8px; }
+  .lp-cta-center { justify-content: center; }
+
+  .lp-section { padding: 80px 0; }
+  .lp-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .lp-point { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 30px 26px; }
+  .lp-point h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: .6rem; color: var(--white); }
+  .lp-point p { color: var(--g2); line-height: 1.7; font-size: .96rem; }
+
+  .lp-h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; text-transform: uppercase; margin: .4rem 0 1.6rem; }
+
+  .lp-faq { background: var(--bg2); }
+
+  .lp-final { text-align: center; background: var(--bg2); border-top: 1px solid var(--border); }
+  .lp-final-p { color: var(--g2); max-width: 52ch; margin: 0 auto 2rem; line-height: 1.7; }
+
+  .lp-footer { border-top: 1px solid var(--border); padding: 30px 0; background: var(--bg); }
+  .lp-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .lp-footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .lp-footer-links a { color: var(--g2); font-size: .9rem; }
+  .lp-footer-links a:hover { color: var(--white); }
+  .lp-footer-copy { color: var(--g3); font-size: .82rem; }
+
+  @media (max-width: 860px) {
+    .lp-points { grid-template-columns: 1fr; }
+  }
+</style>

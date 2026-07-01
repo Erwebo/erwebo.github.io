@@ -214,7 +214,7 @@
     .hero-bg img {
       width:100%; height:100%; object-fit:cover;
       object-position:center 30%;
-      filter:brightness(.45);
+      filter:brightness(.6);
       animation: ken-burns 24s ease-in-out infinite alternate;
     }
     @keyframes ken-burns {
@@ -256,6 +256,14 @@
       margin-bottom:.6rem;
     }
     .hero-title .red { color:var(--red); }
+    .hero-kw {
+      display:block;
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:clamp(1.5rem, 3.2vw, 2.6rem);
+      font-weight:700; line-height:1.05; letter-spacing:.01em;
+      text-transform:none; color:rgba(255,255,255,.92);
+      margin-top:.5rem;
+    }
     .hero-sub {
       font-family:'Barlow Condensed',sans-serif;
       font-size:clamp(1.4rem, 3vw, 2.4rem);

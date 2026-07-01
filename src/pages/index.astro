@@ -12,6 +12,9 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    { "@type": "Question", "name": "¿Dónde puedo jugar fútbol en Panamá?", "acceptedAnswer": { "@type": "Answer", "text": "Con EZ Play reservas tu cupo en partidos de fútbol en canchas de Ciudad de Panamá y alrededores. Eliges día y hora en la app, pagas tu cupo y llegas a jugar: cancha, árbitro, balón y petos incluidos." } },
+    { "@type": "Question", "name": "¿Dónde jugar vóley playa en Panamá?", "acceptedAnswer": { "@type": "Answer", "text": "EZ Play organiza partidos de vóley playa y vóley de piso en Panamá. Abre la app, elige un partido disponible de vóley y reserva tu cupo, sin tener que armar equipo ni conseguir cancha." } },
+    { "@type": "Question", "name": "¿Qué es una birria de fútbol?", "acceptedAnswer": { "@type": "Answer", "text": "Una birria es un partido de fútbol informal entre amigos o desconocidos, sin liga ni compromiso. En EZ Play reservas tu cupo en birrias de fútbol en Panamá y llegas a jugar con todo listo: cancha, árbitro, balón y equipos armados." } },
     { "@type": "Question", "name": "¿Necesito experiencia para jugar fútbol o vóley en EZ Play?", "acceptedAnswer": { "@type": "Answer", "text": "No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Descarga la app, reserva y llega: árbitro y equipos listos." } },
     { "@type": "Question", "name": "¿Tengo que llevar balón o petos?", "acceptedAnswer": { "@type": "Answer", "text": "Solo tu ropa deportiva. Balón, petos por equipo, árbitro y cancha — todo incluido en tu cupo." } },
     { "@type": "Question", "name": "¿Qué pasa si llueve o cancelan el partido?", "acceptedAnswer": { "@type": "Answer", "text": "EZ Play te reembolsa el 100% en EZ Créditos para usarlos en otro partido cuando quieras." } },
@@ -26,7 +29,7 @@ const faqSchema = {
   description="Reserva tu cupo y juega fútbol, vóley playa y birrias en Panamá. Partidos con árbitro, balón, petos y equipos listos. +3,000 jugadores. Descarga la app."
   canonicalUrl="https://ezplayapp.com"
 >
-  <link rel="preload" as="image" href="/assets/fotos/hero-partido.jpg" fetchpriority="high" slot="head" />
+  <link rel="preload" as="image" href="/assets/fotos/hero-ezplay.webp" fetchpriority="high" slot="head" />
   <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} slot="head" />
 
 
@@ -73,7 +76,7 @@ const faqSchema = {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg">
-    <img src="/assets/fotos/hero-partido.jpg" alt="Partido EZ Play Panamá" />
+    <img src="/assets/fotos/hero-ezplay.webp" alt="EZ Play — fútbol y vóley en Panamá" />
   </div>
 
   <div class="container">
@@ -85,7 +88,7 @@ const faqSchema = {
       <h1 class="hero-title">
         Llega.<br>
         <span class="red">Juega.</span>
-        <span class="sr-only">Birrias de fútbol, vóley playa y vóley de piso en Panamá — reserva tu cupo y juega con EZ Play.</span>
+        <span class="hero-kw">Fútbol y vóley en Panamá</span>
       </h1>
       <div class="hero-sub">Sin grupos de WhatsApp. Sin armar equipo. Sin perder tiempo.</div>
       <p class="hero-desc">
@@ -316,6 +319,7 @@ const faqSchema = {
           <span class="dc-category">Mixto</span>
           <div class="dc-title">Volleyball<br>de Arena</div>
           <div class="dc-sub">Cancha de arena · Al aire libre</div>
+          <a href="/voley-playa-panama" class="dc-link" style="display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.02em;">Jugar vóley playa en Panamá →</a>
           <div class="dc-tags">
             <span class="dc-tag">Mixto</span>
             <span class="dc-tag">Árbitro</span>
@@ -332,6 +336,7 @@ const faqSchema = {
           <span class="dc-category">Mixto</span>
           <div class="dc-title">Volleyball<br>de Piso</div>
           <div class="dc-sub">Cancha cubierta · Indoor</div>
+          <a href="/voley-de-piso-panama" class="dc-link" style="display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.02em;">Jugar vóley de piso en Panamá →</a>
           <div class="dc-tags">
             <span class="dc-tag">Mixto</span>
             <span class="dc-tag">Árbitro</span>
@@ -348,6 +353,7 @@ const faqSchema = {
           <span class="dc-category">Masculino</span>
           <div class="dc-title">Fútbol</div>
           <div class="dc-sub">Cancha de césped · Outdoor</div>
+          <a href="/futbol-en-panama" class="dc-link" style="display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:.82rem;letter-spacing:.02em;">Jugar fútbol en Panamá →</a>
           <div class="dc-tags">
             <span class="dc-tag">Masculino</span>
             <span class="dc-tag">Árbitro</span>
@@ -563,6 +569,18 @@ const faqSchema = {
         <h3>Lo que te preguntas</h3>
       </div>
       <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>¿Dónde puedo jugar fútbol en Panamá?</summary>
+          <div class="faq-body">Con EZ Play reservas tu cupo en partidos de fútbol en canchas de Ciudad de Panamá y alrededores. Eliges día y hora en la app, pagas tu cupo y llegas a jugar — cancha, árbitro, balón y petos incluidos.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Dónde jugar vóley playa en Panamá?</summary>
+          <div class="faq-body">EZ Play organiza partidos de <strong>vóley playa</strong> y vóley de piso en Panamá. Abre la app, elige un partido de vóley disponible y reserva tu cupo — sin armar equipo ni conseguir cancha.</div>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué es una birria de fútbol?</summary>
+          <div class="faq-body">Una <strong>birria</strong> es un partido de fútbol informal entre amigos o desconocidos, sin liga ni compromiso. En EZ Play reservas tu cupo en birrias de fútbol en Panamá y llegas a jugar con todo listo: cancha, árbitro, balón y equipos armados.</div>
+        </details>
         <details class="faq-item">
           <summary>¿Necesito experiencia para jugar?</summary>
           <div class="faq-body">No. Hay partidos para todos los niveles. La mayoría son General — pickup amistoso. Descarga la app, reserva y llega: árbitro y equipos listos.</div>
