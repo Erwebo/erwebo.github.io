@@ -1,0 +1,66 @@
+---
+import MainLayout from "./MainLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+}
+const { title, description, canonical, ogImage } = Astro.props;
+const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.r2e.EZPlay&pcampaignid=web_share";
+---
+
+<MainLayout title={title} description={description} canonicalUrl={canonical} ogImage={ogImage}>
+  <slot name="head" />
+
+  <header class="lp-nav">
+    <div class="container lp-nav-inner">
+      <a href="/" class="lp-logo" aria-label="EZ Play — inicio">
+        <img src="/assets/Logo%20(PNG)/Logo%20EZPlay%206%20transparent.png" alt="" aria-hidden="true" />
+        <span>EZPLAY</span>
+      </a>
+      <nav class="lp-nav-menu">
+        <a href="/blog">Blog</a>
+        <a href={PLAY_STORE} target="_blank" rel="noopener" class="btn btn-red lp-nav-cta">Descargar app</a>
+      </nav>
+    </div>
+  </header>
+
+  <slot />
+
+  <footer class="lp-footer">
+    <div class="container lp-footer-inner">
+      <div class="lp-footer-links">
+        <a href="/">Inicio</a>
+        <a href="/blog">Blog</a>
+        <a href="/futbol-en-panama">Fútbol</a>
+        <a href="/voley-playa-panama">Vóley playa</a>
+        <a href="/voley-de-piso-panama">Vóley de piso</a>
+      </div>
+      <span class="lp-footer-copy">© 2026 EZ Play · Panamá</span>
+    </div>
+  </footer>
+</MainLayout>
+
+<style>
+  .lp-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(7,7,7,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .lp-nav-inner { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+  .lp-logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-weight: 800; letter-spacing: .04em; font-style: italic; }
+  .lp-logo img { height: 30px; width: auto; }
+  .lp-nav-menu { display: flex; align-items: center; gap: 22px; }
+  .lp-nav-menu > a:first-child { color: var(--g1); font-weight: 600; font-size: .9rem; }
+  .lp-nav-menu > a:first-child:hover { color: var(--white); }
+  .lp-nav-cta { padding: 9px 20px; font-size: .8rem; }
+
+  .lp-footer { border-top: 1px solid var(--border); padding: 34px 0; background: var(--bg); margin-top: 60px; }
+  .lp-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .lp-footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+  .lp-footer-links a { color: var(--g2); font-size: .9rem; }
+  .lp-footer-links a:hover { color: var(--white); }
+  .lp-footer-copy { color: var(--g3); font-size: .82rem; }
+</style>

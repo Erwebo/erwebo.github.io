@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat("es-PA", { timeZone: "America/Panama", day: "numeric", month: "long", year: "numeric" }).format(d);
+---
+
+<BlogLayout
+  title="Blog de EZ Play | Fútbol y vóley en Panamá"
+  description="Guías y consejos para jugar fútbol, vóley playa y vóley de piso en Panamá: dónde jugar, cómo empezar y sacarle el jugo a cada partido."
+  canonical="https://ezplayapp.com/blog"
+>
+  <section class="blog-hero">
+    <div class="container">
+      <span class="label">Blog</span>
+      <h1>Jugar en Panamá, sin complicarte</h1>
+      <p>Guías y consejos para fútbol, vóley playa y vóley de piso en Panamá — dónde jugar, cómo empezar y aprovechar cada partido.</p>
+    </div>
+  </section>
+
+  <section class="blog-list-sec">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="blog-card">
+            {post.data.heroImage && (
+              <div class="blog-card-img"><img src={post.data.heroImage} alt={post.data.heroAlt ?? post.data.title} loading="lazy" /></div>
+            )}
+            <div class="blog-card-body">
+              <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+              <span class="blog-card-link">Leer más →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BlogLayout>
+
+<style>
+  .blog-hero { padding: 70px 0 40px; border-bottom: 1px solid var(--border); }
+  .blog-hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; text-transform: uppercase; line-height: 1; margin: .3rem 0 1rem; }
+  .blog-hero p { color: var(--g2); max-width: 60ch; line-height: 1.7; }
+
+  .blog-list-sec { padding: 50px 0; }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .blog-card { display: flex; flex-direction: column; background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; text-decoration: none; transition: border-color .25s, transform .25s; }
+  .blog-card:hover { border-color: var(--red); transform: translateY(-4px); }
+  .blog-card-img { aspect-ratio: 16 / 10; overflow: hidden; }
+  .blog-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .blog-card-body { padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 8px; }
+  .blog-card-body time { color: var(--g3); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+  .blog-card-body h2 { color: var(--white); font-size: 1.2rem; font-weight: 700; line-height: 1.25; }
+  .blog-card-body p { color: var(--g2); font-size: .92rem; line-height: 1.6; }
+  .blog-card-link { color: var(--red); font-weight: 700; font-size: .85rem; margin-top: 6px; }
+
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>
