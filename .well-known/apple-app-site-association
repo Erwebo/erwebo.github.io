@@ -1,0 +1,16 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "M3SHHYN63D.com.r2e.EZPlay"
+                ],
+                "paths": [
+                    "/app/*",
+                    "/abrir/*"
+                ]
+            }
+        ]
+    }
+}
